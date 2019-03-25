@@ -42,7 +42,7 @@ message.channel.send(embed).then(message => {
 backwards.on('collect', r => {
      if (page === 1 ) return;
      page --; 
-     embed.setDescription(sayfa[page-1]);
+     embed.setDescription(Sayfa[page-1]);
      embed.setFooter(`Sayfa: ${page} Uzunluk : ${pages.length} `)
      message.edit(embed)
        })
