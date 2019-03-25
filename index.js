@@ -32,13 +32,13 @@ require("./modules/functions.js")(client);
 client.ayar = db;
 
 client.ayarlar = {
-        "official_sahip": ["507803933557915652", "508186259060162560"],
+        "official_sahip": ["441169716547944448", "441169716547944448"],
         "sahip": [],
         "yardimcilar": [''],
         "isim": "KONYA BOT",
         "botD": "https://discordapp.com/oauth2/authorize?client_id=559720149175894038&scope=bot&permissions=2146958847",
-        "webS": "http://ryker.tk",
-        "web": "https://ryker.tk",
+        "webS": "http://bot.irfansonmez.com.tr",
+        "web": "http://bot.irfansonmez.com.tr",
   "dblO": "https://discordbots.org/bot/516600125649453066/vote",
   "dbl": "https://discordbots.org/bot/516600125649453066",
         "versiyon": "0.0.1",
