@@ -1995,4 +1995,4 @@ client.on('ready', () => {
     console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
  });
 
-client.login('NTE4NDI4OTk4NDg5ODY2MjUx.DvZM9g.Wg6tffC1uYIoTAFYa3aawFX3W-Y');
+client.login('NTU5NzIwMTQ5MTc1ODk0MDM4.D3pfiA.BS2jCUGEWL4_BRaq-kpCfh0Ogrs');
