@@ -3,17 +3,17 @@ const db = require('quick.db');
 
 exports.run =  (client, args, message, tool) => {
 
-  const mod = (`${client.emojis.get("519189983433588746")}`) //+
-  const ayar = (`${client.emojis.get("519190010113556487")}`)//+
-  const kul = (`${client.emojis.get("519189980581462037")}`)//+
-  const pro = (`${client.emojis.get("519201925418188800")}`)//+
-  const eğlen = (`${client.emojis.get("519189980581462037")}`) //+
-  const oyun = (`${client.emojis.get("519190011090829323")}`) //+
-  const müzik = (`${client.emojis.get("519189983836504064")}`) //+
-  const sunucu = (`${client.emojis.get("519201925292359682")}`) //+
-  const efekt = (`${client.emojis.get("519203551235538944")}`) //+
-  const bott = (`${client.emojis.get("519190010621329439")}`) //+
-  const yan = (`${client.emojis.get("519204890522681350")}`) //+
+  const mod = (`${client.emojis.get("5559815474607816718")}`) //+
+  const ayar = (`${client.emojis.get("559815474607816718")}`)//+
+  const kul = (`${client.emojis.get("559815474607816718")}`)//+
+  const pro = (`${client.emojis.get("559815474607816718")}`)//+
+  const eğlen = (`${client.emojis.get("559815474607816718")}`) //+
+  const oyun = (`${client.emojis.get("559815474607816718")}`) //+
+  const müzik = (`${client.emojis.get("559815474607816718")}`) //+
+  const sunucu = (`${client.emojis.get("559815474607816718")}`) //+
+  const efekt = (`${client.emojis.get("559815474607816718")}`) //+
+  const bott = (`${client.emojis.get("559815474607816718")}`) //+
+  const yan = (`${client.emojis.get("559815474607816718")}`) //+
     
     
   

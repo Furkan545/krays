@@ -4,7 +4,10 @@ const { stripIndents, oneLine } = require('common-tags');
 const db = require('quick.db');
 
 exports.run = async (bot, message, args, dil) => {
-
+  
+  
+  
+  
   const ayarlar = bot.ayarlar
   
   var prefix = ayarlar.prefix
