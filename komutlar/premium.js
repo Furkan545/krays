@@ -61,7 +61,7 @@ message.channel.send(embed)
     let embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(`${client.user.username} - Premium`, client.user.avatarURL)
-.setDescription(db.fetch(`sunucuxp_${message.guild.id}`)+"/50" || 0)
+.setDescription(db.fetch(`sunucuxp_${message.guild.id}`)+"/2" || 2)
 message.channel.send(embed)
     return;
   }
