@@ -23,7 +23,7 @@ exports.run = async (client, message) => {
 
     message.reply(dil.basarili);
 
-    var hataHook = new Discord.WebhookClient("558210390782377995", "2U3PKeQQNSraOfzxZ0yjqWXZd-WufsTNzN4xZEtsE1YC4RaeOZzB7NH0-41TUInrme9n")
+    var hataHook = new Discord.WebhookClient("559830846417403904", "6SiyTczgOIlj6VQ39AU_Tn6nEGa1I8dC8OuoViBdL68LWwjVj5yoTQqBsk1DfwK42BRn")
 
     var embed = new Discord.RichEmbed()
     .setColor("0x36393F")
