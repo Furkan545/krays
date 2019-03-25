@@ -68,7 +68,7 @@ message.channel.send(embed)
   
   if (i === "aç" || i === "aktif") {
     
-    if (message.author.id !== "507803933557915652") return;
+    if (message.author.id !== "441169716547944448") return;
     
     db.set(`premium_${message.guild.id}`, "aktif")
     db.set(`sunucuxp_${message.guild.id}`, 50)
@@ -83,7 +83,7 @@ message.channel.send(embed)
   
   if (i === "kapat" || i === "deaktif" || i === "de-aktif") {
     
-    if (message.author.id !== "507803933557915652") return;
+    if (message.author.id !== "441169716547944448") return;
     
     db.delete(`premium_${message.guild.id}`)
     db.delete(`sunucuxp_${message.guild.id}`)

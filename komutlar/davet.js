@@ -17,7 +17,7 @@ exports.run = async (client, message) => {
   const davet = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(`${client.user.username} - ${dil.special.links}`, client.user.avatarURL)
-.setDescription(`[${dil.special.botinvite}](${client.ayarlar.botD}) \n[${dil.special.supportserver}](https://discord.gg/TcZtQFU) \n [${dil.special.webS}](${client.ayarlar.webS}) \n[${dil.special.DBLpage}](${client.ayarlar.dbl}) \n[${dil.special.DBLvote}](${client.ayarlar.dblO})
+.setDescription(`[${dil.special.botinvite}](${client.ayarlar.botD}) \n[${dil.special.supportserver}](https://discord.gg/mK5u79Q) \n [${dil.special.webS}](${client.ayarlar.webS}) \n[${dil.special.DBLpage}](${client.ayarlar.dbl}) \n[${dil.special.DBLvote}](${client.ayarlar.dblO})
 `)
 message.channel.send(davet)
 };
