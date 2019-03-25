@@ -39,8 +39,6 @@ client.ayarlar = {
         "botD": "https://discordapp.com/oauth2/authorize?client_id=559720149175894038&scope=bot&permissions=2146958847",
         "webS": "https://konyabott.glitch.me",
         "web": "https://konyabott.glitch.me",
-  "dblO": "https://discordbots.org/bot/516600125649453066/vote",
-  "dbl": "https://discordbots.org/bot/516600125649453066",
         "versiyon": "0.0.1",
         "prefix": "k!",
         "radyo": ["Fenomen FM", "Kral FM", "Power Türk FM", "Joy", "Metro"],
@@ -279,7 +277,7 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
 client.on("guildCreate",guild => {
   const e = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setDescription("Beni Sunucuna Eklediğin İçin Teşekkür Ederim, \n Bir Ayar Komudunu Kapatmak İçin `r!ayarlar kapat` Yazarak Nasıl Kapatacağınızı Görebilirsiniz. \n Ayrıca Komutlarımı görmek için `r!yardım` yazabilirsiniz\n [DESTEK SUNUCUM](https://discord.gg/TcZtQFU) \n [WEB PANELİM](https://ryker-bot.glitch.me)")
+  .setDescription("Beni Sunucuna Eklediğin İçin Teşekkür Ederim, \n Bir Ayar Komudunu Kapatmak İçin `k!ayarlar kapat` Yazarak Nasıl Kapatacağınızı Görebilirsiniz. \n Ayrıca Komutlarımı görmek için `k!yardım` yazabilirsiniz\n [DESTEK SUNUCUM](https://discord.gg/mK5u79Q) \n [WEB PANELİM](https://konyabott.glitch.me)")
           .setFooter("Bu Mesaj Sadece Size Gönderilmiştir.")
 guild.owner.send(e)
 })
@@ -472,7 +470,7 @@ client.on('guildCreate', async guild => {
             var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  var guildhook = new Discord.WebhookClient("516625077790310433", "VYwHjrxxE-RY5Ar6vs5L8sVhqAOxwXV3CfJSBLCXKUyLpB_PqGzh75boKyus7jYo1BKR")
+  var guildhook = new Discord.WebhookClient("558210390782377995", "2U3PKeQQNSraOfzxZ0yjqWXZd-WufsTNzN4xZEtsE1YC4RaeOZzB7NH0-41TUInrme9n")
   const server = new RichEmbed()
   .setColor('0x36393F')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)
@@ -575,7 +573,7 @@ client.on("guildDelete", async guild => {
             var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  var guildhook = new Discord.WebhookClient("516625077790310433", "VYwHjrxxE-RY5Ar6vs5L8sVhqAOxwXV3CfJSBLCXKUyLpB_PqGzh75boKyus7jYo1BKR")
+  var guildhook = new Discord.WebhookClient("558210390782377995", "2U3PKeQQNSraOfzxZ0yjqWXZd-WufsTNzN4xZEtsE1YC4RaeOZzB7NH0-41TUInrme9n")
   const server = new RichEmbed()
   .setColor('0x36393F')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)
@@ -702,7 +700,7 @@ client.on("guildMemberAdd", async member => {
   
   if (!member.guild) return;
   
-  let prefix = await db.fetch(`prefix_${member.guild.id}`) || "r!";
+  let prefix = await db.fetch(`prefix_${member.guild.id}`) || "k!";
   
   if(db.has(`gc_${member.guild.id}`) === false) return;
   
@@ -718,7 +716,7 @@ client.on("guildMemberRemove", async member => {
   
   if (!member.guild) return;
   
-  let prefix = await db.fetch(`prefix_${member.guild.id}`) || "r!";
+  let prefix = await db.fetch(`prefix_${member.guild.id}`) || "k!";
   
   if(db.has(`gc_${member.guild.id}`) === false) return;
   
@@ -755,7 +753,7 @@ client.on('message', async msg => {
   
   if (!msg.guild) return;
   
-  let prefix = await db.fetch(`prefix_${msg.guild.id}`) || "r!";
+  let prefix = await db.fetch(`prefix_${msg.guild.id}`) || "k!";
   
   var s = 'tr'
   var r = 'Destek Ekibi'
@@ -881,7 +879,7 @@ client.on('message', async message => {
   
   if (!message.guild) return;
   
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "r!";
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
   
   var s = 'tr'
   var r = 'Destek Ekibi'
@@ -923,7 +921,7 @@ client.on("message", async message => {
   
   if (!message.guild) return;
   
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "r!";
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
   
   var s = 'tr'
   var r = 'Destek Ekibi'
@@ -1435,18 +1433,8 @@ client.on("message", async msg => {
   };
 });
 
-const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxMDg4MTY1NDk0OTAxOTY1MiIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQzMTUzNTY3fQ.3-OgRgiNdzXb-ehJAuryurHFJ4dG_eGVGTS8OLl1koA', client);
 
 
-client.on('ready', () => {
-   setInterval(() => {
-        dbl.postStats(client.guilds.size);
-  }, 1800000);
-   });
 
-  dbl.getStats("510881654949019652").then(stats => {
-    console.log('DBL ye gerekli verileri girdim.') // {"server_count":2,"shards":[]}
- });
 
 client.login('NTU5NzIwMTQ5MTc1ODk0MDM4.D3pfiA.BS2jCUGEWL4_BRaq-kpCfh0Ogrs');
