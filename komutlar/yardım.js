@@ -12,7 +12,7 @@ exports.run = async (bot, message, args, dil) => {
   
   var prefix = ayarlar.prefix
   
-  if (message.author.id !== "441169716547944448") return message.reply("Bir süre devre dışıdır!")
+  //if (message.author.id !== "441169716547944448") return message.reply("Bir süre devre dışıdır!")
   
   let command = args[0];
   
@@ -197,7 +197,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['h', 'help', 'y'],
-  bakim: false,
+ 
   permLevel: 0,
   kategori: 'genel'
 };
