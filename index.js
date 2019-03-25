@@ -240,25 +240,7 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
   
   if (message.author.bot) return;
   
-  const s = ["sa", "sea", "selam", "slm", "Selamünaleyküm", "Selamün Aleyküm", "Selamun Aleykum", "Selamunaleykum", "selamlar"]
-  if (s.some(k => message.content.toLowerCase() === (k))) {
-    message.react("465437494708797450").then(() => message.react("465440841863921669"))
-  }
-  
-  const g = ["günaydın", "iyi sabahlar"]
-  if (g.some(k => message.content.toLowerCase().includes(k))) {
-    message.react("🌇").then(() => message.react("🍳")).then(() => message.react("🍞"))
-  }
-  
-  const g2 = ["iyi geceler", "iyi akşamlar"]
-  if (g2.some(k => message.content.toLowerCase().includes(k))) {
-    message.react("🌆").then(() => message.react("😴"))
-  }
-  
-  const m = ["merhaba", "mrb", "bb", "by", "bye"]
-  if (m.some(k => message.content.toLowerCase().includes(k))) {
-    message.react("👋")
-  }
+
   
   if (message.content === `<@${client.user.id}>`) {
     
