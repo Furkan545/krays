@@ -51,7 +51,7 @@ exports.conf = {
     aliases: [],
     permLevel: 4,
     kategori: "ayarlar",
-  category: "settings"
+    category: "settings"
   };
 
   exports.help = {
@@ -59,7 +59,7 @@ exports.conf = {
     
     description: 'Çıkış mesajını değiştirmenizi sağlar.',
     usage: 'çıkış-mesaj-ayarla <mesaj> \n**NOT:** Mesajda kişinin geleceği yere **{kullanıcı}** yazınız aksi taktirde kişiyi göstermez.',
-  enname: 'change-output-message',
+    enname: 'change-output-message',
     enusage: 'change-output-message <new message>',
     endescription: 'change-output-message **NOTE:** The future of the person in the message place **{user}** aksi halde kişi göstermeyecektir.',
 

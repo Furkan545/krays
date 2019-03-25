@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
     var embed2 = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setTitle("Ön-Ek Başarıyla Sıfırlandı!")
-    .setDescription("Ön-Ek sıfırlanıp `r!` olarak ayarlanmıştır!")
+    .setDescription("Ön-Ek sıfırlanıp `k!` olarak ayarlanmıştır!")
     message.channel.send(embed2)
     return;
   }
