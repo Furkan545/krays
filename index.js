@@ -37,8 +37,8 @@ client.ayarlar = {
         "yardimcilar": [''],
         "isim": "KONYA BOT",
         "botD": "https://discordapp.com/oauth2/authorize?client_id=559720149175894038&scope=bot&permissions=2146958847",
-        "webS": "http://bot.irfansonmez.com.tr",
-        "web": "http://bot.irfansonmez.com.tr",
+        "webS": "https://konyabott.glitch.me",
+        "web": "https://konyabott.glitch.me",
   "dblO": "https://discordbots.org/bot/516600125649453066/vote",
   "dbl": "https://discordbots.org/bot/516600125649453066",
         "versiyon": "0.0.1",
@@ -238,7 +238,7 @@ client.on("message", async message => {
   
   if (!message.guild) return;
   
-let prefix = await db.fetch(`prefix_${message.guild.id}`) || "re!";
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
   
   if (message.author.bot) return;
   
@@ -352,7 +352,7 @@ client.on("message",async  message => {
 
   if (!message.guild) return;
   
-let prefix = await db.fetch(`prefix_${message.guild.id}`) || "r!";
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
 
   //let k;
   if(db.has(`komut_${message.guild.id}`)) {
