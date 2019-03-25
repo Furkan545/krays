@@ -46,7 +46,8 @@ exports.conf = {
     guildOnly: false,
     aliases: ['davet-kanal-belirle'],
     permLevel: 4,
-    kategori: "ayarlar",
+    
+  kategori: "ayarlar",
   category: "settings"
 }
 
