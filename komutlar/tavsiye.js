@@ -1,36 +1,23 @@
 const Discord = require('discord.js')
-const id = '441169716547944448'
 
 exports.run = (client, message, args) => {
-    const bildiri = args.join(" ")
-    if (!args[0]) {
-        const embed = new Discord.RichEmbed()
-            .setDescription(`Lütfen geçerli bir bildiri yazın. Eğer boş/gereksiz bildiri gönderirseniz bottan engellenirsiniz.`)
-            .setTimestamp()
-            .setColor("RANDOM")
-        message.channel.send({embed})
-        return
-    }
-  
-    const embed = new Discord.RichEmbed()
-        .setDescription(`Bildiriniz başarıyla bot geliştiricisine iletilmiştir <a:success:498218308366237716>`)
-        .setTimestamp()
-        .setColor("RANDOM")
-    message.channel.send({embed})
-    
-   var TavsiyeHook = new Discord.WebhookClient("559830846417403904", "6SiyTczgOIlj6VQ39AU_Tn6nEGa1I8dC8OuoViBdL68LWwjVj5yoTQqBsk1DfwK42BRn")
+   let type = args.slice(0).join(' ');
+    if (type.length < 1) return message.channel.send(
+new Discord.RichEmbed()
+.setDescription('Kullanım: k!tavsiye <Tavsiyeniz>'));
+const embed = new Discord.RichEmbed()
+.setColor('RANDOM')
+.setDescription('Tavsiyeniz Bildirildi!')
+message.channel.send(embed)
+const embed2 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**${message.author.tag}** adlı kullanıcının tavsiyesi:`)
+.addField(`**Kulanıcı Bilgileri**`, `**Kullanıcı ID**: ${message.author.id}\nKullanıcı Adı: ${message.author.username}\n**Kullanıcı Tagı**: ${message.author.discriminator}`)
+.addField("Tavsiye", type)
+.setThumbnail(message.author.avatarURL)
+client.channels.get('558305187589128193').send(embed2); // Kanal ID
 
-    .setColor("0x36393F")
-       .addField(`Bildiren Kişi`, message.author.tag)
-            .addField(`Bildirinin Yapıldığı Sunucu`, message.guild.name)
-            .addField(`Bildirinin Yapıldığı Sunucunun Davet Linki`, invite.url)
-            .addField(`Bildiri`, bildiri)
-            .setColor("RANDOM")
-            .setTimestamp()
-    TavsiyeHook.send(embed)
 };
-
-    
 
 exports.conf = {
     enabled: true,
