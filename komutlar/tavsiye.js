@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const id = '558305187589128193'
+const id = '441169716547944448'
 
 exports.run = (client, message, args) => {
     const bildiri = args.join(" ")
