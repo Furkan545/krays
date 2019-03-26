@@ -22,7 +22,7 @@ client.channels.get('558305187589128193').send(embed2); // Kanal ID
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['rapor', 'raporla', 'tavsiye', 'tavsiyeet', 'tavsiyet', 'öner', 'öneri', 'bildir'],
+    aliases: [],
     permLevel: 0,
   kategori: "iletisim"
 }
