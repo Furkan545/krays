@@ -18,17 +18,19 @@ exports.run = (client, message, args) => {
         .setColor("RANDOM")
     message.channel.send({embed})
     
-    message.channel.createInvite({maxAge: 0}).then(async (invite) => {
-        const embed = new Discord.RichEmbed()
-            .addField(`Bildiren Kişi`, message.author.tag)
+   var TavsiyeHook = new Discord.WebhookClient("559830846417403904", "6SiyTczgOIlj6VQ39AU_Tn6nEGa1I8dC8OuoViBdL68LWwjVj5yoTQqBsk1DfwK42BRn")
+
+    .setColor("0x36393F")
+       .addField(`Bildiren Kişi`, message.author.tag)
             .addField(`Bildirinin Yapıldığı Sunucu`, message.guild.name)
             .addField(`Bildirinin Yapıldığı Sunucunun Davet Linki`, invite.url)
             .addField(`Bildiri`, bildiri)
             .setColor("RANDOM")
             .setTimestamp()
-        client.users.get(id).send({embed})
-    })
-}
+    TavsiyeHook.send(embed)
+};
+
+    
 
 exports.conf = {
     enabled: true,
