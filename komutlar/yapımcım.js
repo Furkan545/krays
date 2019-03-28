@@ -12,7 +12,7 @@ var embed = new Discord.RichEmbed()
 .addField(`Botun Olduğu Sunucu Sayısı`,client.guilds.size) // bu varmı böyle bişe hm unutum 1 dk
 .addField(`Botaki Komut Sayısı`,client.commands.size)
 //oldumu :D ?
-.addField(`Sahip`, `<@441169716547944448>`,true) //imdatt efe dc bak bi haa burda niye hata var
+.addField(`Sahip`, `<@530713851675672587>`,true) //imdatt efe dc bak bi haa burda niye hata var
 .addField(`Botun Geliştiricisi`,`<@530713851675672587>`,true)
 .addField(`Bot Discord.js Versiyon`,Discord.version)
 .addField(`Bot İd`,client.user.id) //cilent olan herşey botla ilgimi ? timam
