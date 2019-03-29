@@ -1970,4 +1970,4 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 
 
 
-client.login('NTU5NzIwMTQ5MTc1ODk0MDM4.D3pfiA.BS2jCUGEWL4_BRaq-kpCfh0Ogrs');
+client.login('');

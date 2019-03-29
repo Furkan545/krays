@@ -2,7 +2,7 @@ const config = {
   "ownerID": "441169716547944448", //kendi IDınızı yazınız
   "admins": ["441169716547944448"],
   "support": ["441169716547944448"],
-  "token": "NTU5NzIwMTQ5MTc1ODk0MDM4.D3pfiA.BS2jCUGEWL4_BRaq-kpCfh0Ogrs", //botunuzun tokenini yazınız
+  "token": "", //botunuzun tokenini yazınız
   "dashboard" : {
     "oauthSecret": "4NXQdIL_HaSQA9axn-yLfQFZKRbrEzC_", //botunuzun secretini yazınız 
     "callbackURL": `https://konyabott.glitch.me/callback`,//site URLnizi yazınız /callback kısmını silmeyiniz!
