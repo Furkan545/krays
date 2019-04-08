@@ -32,13 +32,13 @@ require("./modules/functions.js")(client);
 client.ayar = db;
 
 client.ayarlar = {
-        "official_sahip": ["441169716547944448", "441169716547944448"],
+        "official_sahip": ["497754710896410654", "497754710896410654"],
         "sahip": [],
         "yardimcilar": [''],
-        "isim": "KONYA BOT",
-        "botD": "https://discordapp.com/oauth2/authorize?client_id=559720149175894038&scope=bot&permissions=2146958847",
-        "webS": "https://konyabott.glitch.me",
-        "web": "https://konyabott.glitch.me",
+        "isim": "KAPOT BOT",
+        "botD": "https://discordapp.com/oauth2/authorize?client_id=561835095997022232&scope=bot&permissions=2146958847",
+        "webS": "https://kapot.glitch.me",
+        "web": "https://kapot.glitch.me",
         "versiyon": "0.0.1",
         "prefix": "k!",
         "radyo": ["Fenomen FM", "Kral FM", "Power Türk FM", "Joy", "Metro"],
@@ -1970,4 +1970,4 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 
 
 
-client.login('');
+client.login('NTYxODM1MDk1OTk3MDIyMjMy.XKB_uw.hn7G5LNvRUlCOWvsfNTcmE5wzz8');
