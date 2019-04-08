@@ -1426,215 +1426,550 @@ client.login('NTYxODM1MDk1OTk3MDIyMjMy.XKB_uw.hn7G5LNvRUlCOWvsfNTcmE5wzz8');
 
 /////////////////////////////////////////////////////////////////////////////////
 
-client.on('message', async message => {
-  const ms = require('ms');
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-  let u = message.mentions.users.first() || message.author;
-  if (command === "sunucu-kur") {
-  if (message.guild.channels.find(channel => channel.name === "Bot Kullanımı")) return message.channel.send(" Bot Paneli Zaten Ayarlanmış.")
-  message.channel.send(`Bot Bilgi Kanallarının kurulumu başlatılsın mı? başlatılacak ise **evet** yazınız.`)
-      if (!message.member.hasPermission('ADMINISTRATOR'))
-  return message.channel.send(" Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir.");
-      message.channel.awaitMessages(response => response.content === 'evet', {
-        max: 1,
-        time: 10000,
-        errors: ['time'],
-      })
-    .then((collected) => {
-   message.guild.createChannel('|▬▬|ÖNEMLİ KANALLAR|▬▬|', 'category', [{
-  id: message.guild.id,
-  deny: ['SEND_MESSAGES']
-}])
+const YouTube = require('simple-youtube-api');
+const ytdl = require('ytdl-core');
+const youtube = new YouTube('AIzaSyCJrGp1nROqIEp9mDXd1iV-gl5wYXNeDMs');
+const queue = new Map();
 
-
-
+client.on("message", async message => {
+  
+  if (!message.guild) return;
+  
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
+  
+  var args = message.content.substring(prefix.length).split(" ");
+    if (!message.content.startsWith(prefix)) return;
+  var searchString = args.slice(1).join(' ');
+  var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
+  var serverQueue = queue.get(message.guild.id);
+  
+    switch (args[0].toLowerCase()) {
         
- message.guild.createChannel('「📃」kurallar', 'text', [{
-  id: message.guild.id,
-  deny: ['SEND_MESSAGES']
-}])
-.then(channel =>
- channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
- message.guild.createChannel('「🚪」gelen-giden', 'text', [{
-  id: message.guild.id,
-  deny: ['SEND_MESSAGES']
-}])
-.then(channel =>
-       channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
-       message.guild.createChannel('「✅」sayaç', 'text', [{
-        id: message.guild.id,
-        deny: ['SEND_MESSAGES']
-      }])
-.then(channel =>
-             channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
-             message.guild.createChannel('「💾」log-kanalı', 'text', [{
-              id: message.guild.id,
-              deny: ['SEND_MESSAGES']
-            }])
-            .then(channel => channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
-            message.guild.createChannel('「📢」duyuru-odası', 'text', [{
-              id: message.guild.id,
-              deny: ['SEND_MESSAGES']
-            }])
-.then(channel =>
- channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
-
-       }) 
-       .then((collected) => {
-        message.guild.createChannel('|▬▬|GENEL KANALLAR|▬▬|', 'category', [{
-       id: message.guild.id,
-     }]);
-             
-      message.guild.createChannel(`「💡」şikayet-ve-öneri`, 'text')
-     .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
-     message.guild.createChannel(`「👥」pre-arama-odası`, 'text')
-     .then(channel =>
-            channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
-     message.guild.createChannel(`「📷」görsel-içerik`, 'text')
-     .then(channel =>
-                  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
-     message.guild.createChannel(`「🤖」bot-komutları`, 'text')
-     .then(channel =>
-                  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
-     message.guild.createChannel(`「💬」sohbet`, 'text')
-     .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
-
-      message.guild.createChannel(`🏆》Kurucu Odası`, "voice")
-      .then(channel =>
-        channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|SES KANALLARI|▬▬|")))
-      .then(c => {
-        let role = message.guild.roles.find("name", "@everyone");
-        let role2 = message.guild.roles.find("name", "Kurucu");
+      case "oynat", "çal":
+    var voiceChannel = message.member.voiceChannel;
         
-        c.overwritePermissions(role, {
-            CONNECT: false,
-        });
-        c.overwritePermissions(role2, {
-            CONNECT: true,
-            
-        });
-    })
+    const embed = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription("Dinlemek istediğin şarkıyı yazmalısın! (Şarkı ismi veya Youtube URLsi)")
+    if (!url) return message.channel.send(embed);
+        
+    const voiceChannelAdd = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Lütfen herhangi bir sesli kanala katılınız.`)
+    if (!voiceChannel) return message.channel.send(voiceChannelAdd);
+    var permissions = voiceChannel.permissionsFor(message.client.user);
+    if (!permissions.has('CONNECT')) {
+      const warningErr = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Herhangi bir sesli kanala katılabilmek için yeterli iznim yok.`)
+      return message.channel.send(warningErr);
+    }
+    if (!permissions.has('SPEAK')) {
+      const musicErr = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Müzik açamıyorum/şarkı çalamıyorum çünkü kanalda konuşma iznim yok veya mikrofonum kapalı.`)
+      return message.channel.send(musicErr);
+    }
+      if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
+      var playlist = await youtube.getPlaylist(url);
+      var videos = await playlist.getVideos();
+      for (const video of Object.values(videos)) {
+        var video2 = await youtube.getVideoByID(video.id);
+        await handleVideo(video2, message, voiceChannel, true);
+      }
+      const PlayingListAdd = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) İsimli şarkı oynatma listesine Eklendi.`)
+      return message.channel.send(PlayingListAdd);
+    } else {
+      try {
+        var video = await youtube.getVideo(url);
+      } catch (error) {
+      try {
+          var videos = await youtube.searchVideos(searchString, 10);
+          
+          var r = 1
+        
+          var video = await youtube.getVideoByID(videos[r - 1].id);
+        } catch (err) {
+          console.error(err);
+          const songNope = new RichEmbed()
+          .setColor("RANDOM")
+          .setDescription(`Aradığınız isimde bir şarkı bulamadım.`) 
+          return message.channel.send(songNope);
+        }
+      }
+      return handleVideo(video, message, voiceChannel);
+    }
+    break
+       case "tekrar":
+       const e = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`) 
+    if (!message.member.voiceChannel) return message.channel.send(e);
+    const p = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(p);
+        
+    var u = serverQueue.songs[0]
+        
+    /*var pla = await youtube.getPlaylist(u);
+      var v = await pla.getVideos();*/
+      var vi2 = await youtube.getVideoByID(u.id);
+      await handleVideo(vi2, message, voiceChannel, true);
+    const PlayingListAdd = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`[${u.title}](https://www.youtube.com/watch?v=${u.id}) İsimli şarkı bitince tekrar oynatılacak.`)
+    return message.channel.send(PlayingListAdd);
+        
+    break;
+      case "geç":
+      const err0 = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`) 
+    if (!message.member.voiceChannel) return message.channel.send(err0);
+    const err05 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(err05);
+    const songSkip = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla geçildi!`)
+    serverQueue.connection.dispatcher.end('');
+    message.channel.send(songSkip)
+    return undefined;
+break;
+      case "durdur":
+    const err1 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Bir sesli kanalda değilsin.`)  
+    if (!message.member.voiceChannel) return message.channel.send(err1);
+    const err2 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(err2);
+    serverQueue.songs = [];
+    const songEnd = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla durduruldu ve odadan ayrıldım!`)
+    serverQueue.connection.dispatcher.end('');
+    message.channel.send(songEnd);
+    return undefined;
+break;
+      case "ses":
+      const asd1 = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`)  
+    if (!message.member.voiceChannel) return message.channel.send(asd1);
+    const asd2 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(asd2);
 
-    message.guild.createChannel('|▬▬|SES KANALLARI|▬▬|', 'category', [{
-      id: message.guild.id,
-    }]);
+    if (!args[1]) return message.reply("Ses seviyesi ayarlamak için bir sayı yaz!");
+    serverQueue.volume = args[1];
+    if (args[1] > 10) return message.channel.send(`Ses seviyesi en fazla \`10\` olarak ayarlanabilir.`)
+    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+    const volumeLevelEdit = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Ayarlanan Ses Seviyesi: **${args[1]}**`)
+    return message.channel.send(volumeLevelEdit);
+break;
+      case "kuyruk":
+      var siralama = 0;
+        const a = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`)  
+    if (!message.member.voiceChannel) return message.channel.send(a);
+    const b = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(b);
+        
+    var k = serverQueue.songs.map(song => `${++siralama} - [${song.title}](https://www.youtube.com/watch?v=${song.id})`).join('\n').replace(serverQueue.songs[0].title, `**${serverQueue.songs[0].title}**`)
+        
+    const kuyruk = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .addField("Şarkı Kuyruğu", k)
+    return message.channel.send(kuyruk)
+break;
+case "duraklat":
+      if (serverQueue && serverQueue.playing) {
+        serverQueue.playing = false;
+        serverQueue.connection.dispatcher.pause();
+        const asjdhsaasjdha = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla duraklatıldı!`)
+      return message.channel.send(asjdhsaasjdha);
+    }
+    return message.channel.send('Şuanda herhangi bir şarkı çalmıyor.');
+break;
+      case "devamet":
+      if (serverQueue && !serverQueue.playing) {
+        serverQueue.playing = true;
+        serverQueue.connection.dispatcher.resume();
+        const asjdhsaasjdhaadssad = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla devam ettiriliyor...`)
+      return message.channel.send(asjdhsaasjdhaadssad);
+    }
+    return message.channel.send('Şuanda herhangi bir şarkı çalmıyor.');
+  
 
-    message.guild.createChannel(`🏆》Yönetici Odası`, "voice")
-    .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|SES KANALLARI|▬▬|")))
-    .then(c => {
-      let role = message.guild.roles.find("name", "@everyone");
-      let role2 = message.guild.roles.find("name", "Kurucu");
-      let role3 = message.guild.roles.find("name", "Yönetici");
-      c.overwritePermissions(role, {
-          CONNECT: false,
-      });
-      c.overwritePermissions(role2, {
-          CONNECT: true,
-      });
-      c.overwritePermissions(role3, {
-          CONNECT: true,
-      });
-  })
-
-  message.guild.createChannel(`💬》Sohbet Odası`, "voice")
-  .then(channel =>
-    channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|SES KANALLARI|▬▬|")))
-  .then(c => {
-    let role = message.guild.roles.find("name", "@everyone");
-    c.overwritePermissions(role, {
-        CONNECT: true,
-    });
-})
-
-message.guild.createChannel('|▬▬|OYUN ODALARI|▬▬|', 'category', [{
-  id: message.guild.id,
-}]);
-
-message.guild.createChannel(`🎮》LOL`, 'voice')
-.then(channel =>
- channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
- message.guild.createChannel(`🎮》ZULA`, 'voice')
- .then(channel =>
-  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
- message.guild.createChannel(`🎮》COUNTER STRİKE`, 'voice')
-.then(channel =>
- channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
- message.guild.createChannel(`🎮》PUBG`, 'voice')
- .then(channel =>
-  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
-  message.guild.createChannel(`🎮》FORTNİTE`, 'voice')
-  .then(channel =>
-   channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
-   message.guild.createChannel(`🎮》MİNECRAFT`, 'voice')
-   .then(channel =>
-    channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
-    message.guild.createChannel(`🎮》ROBLOX`, 'voice')
-    .then(channel =>
-     channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
-     message.guild.createChannel(`🎮》WOLFTEAM`, 'voice')
-     .then(channel =>
-      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
-
-
-
-      message.guild.createRole({
-        name: 'Kurucu',
-        color: 'RED',
-        permissions: [
-            "ADMINISTRATOR",
-    ]
-      })
-
-      
-      message.guild.createRole({
-        name: 'Yönetici',
-        color: 'BLUE',
-        permissions: [
-            "MANAGE_GUILD",
-            "MANAGE_ROLES",
-            "MUTE_MEMBERS",
-            "DEAFEN_MEMBERS",
-            "MANAGE_MESSAGES",
-            "MANAGE_NICKNAMES",
-            "KICK_MEMBERS"
-    ]
-      })
-
-      message.guild.createRole({
-        name: 'Moderatör',
-        color: 'GREEN',
-        permissions: [
-            "MANAGE_GUILD",
-            "MANAGE_ROLES",
-            "MUTE_MEMBERS",
-            "DEAFEN_MEMBERS",
-            "MANAGE_MESSAGES",
-            "MANAGE_NICKNAMES"
-    ]
-      })
-
-      message.guild.createRole({
-        name: 'V.I.P',
-        color: '00ffff',
-      })
-
-      message.guild.createRole({
-        name: 'Üye',
-        color: 'WHITE',
-      })
-
-      message.guild.createRole({
-        name: 'Bot',
-        color: 'ORANGE',
-      })
-
-       message.channel.send("Gerekli Odalar Kuruldu!")
-     
-            })   
-    
+  return undefined;
+break;
 }
+async function handleVideo(video, message, voiceChannel, playlist = false) {
+  var serverQueue = queue.get(message.guild.id);
+  //console.log(video);
+  var song = {
+    id: video.id,
+    title: video.title,
+    durationh: video.duration.hours,
+    durationm: video.duration.minutes,
+		durations: video.duration.seconds,
+    url: `https://www.youtube.com/watch?v=${video.id}`,
+    thumbnail: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+    requester: message.author.id,
+  };
+  if (!serverQueue) {
+    var queueConstruct = {
+      textChannel: message.channel,
+      voiceChannel: voiceChannel,
+      connection: null,
+      songs: [],
+      volume: 3,
+      playing: true
+    };
+    queue.set(message.guild.id, queueConstruct);
+
+    queueConstruct.songs.push(song);
+
+    try {
+      var connection = await voiceChannel.join();
+      queueConstruct.connection = connection;
+      play(message.guild, queueConstruct.songs[0]);
+    } catch (error) {
+      console.error(`Ses kanalına giremedim HATA: ${error}`);
+      queue.delete(message.guild.id);
+      return message.channel.send(`Ses kanalına giremedim HATA: ${error}`);
+    }
+  } else {
+    serverQueue.songs.push(song);
+    //console.log(serverQueue.songs);
+    if (playlist) return undefined;
+
+    const songListBed = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) isimli şarkı kuyruğa eklendi!`)
+    return message.channel.send(songListBed);
+  }
+  return undefined;
+}
+  function play(guild, song) {
+  var serverQueue = queue.get(guild.id);
+
+  if (!song) {
+    serverQueue.voiceChannel.leave();
+    voiceChannel.leave();
+    queue.delete(guild.id);
+    return;
+  }
+  //console.log(serverQueue.songs);
+
+  const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+    .on('end', reason => {
+      if (reason === 'İnternetten kaynaklı bir sorun yüzünden şarkılar kapatıldı.');
+      else console.log(reason);
+      serverQueue.songs.shift();
+      play(guild, serverQueue.songs[0]);
+    })
+    .on('error', error => console.error(error));
+  dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+  
+  const playingBed = new RichEmbed()
+  .setColor("RANDOM")
+  .setAuthor(`Şuanda Oynatılıyor`, "https://davidjhinson.files.wordpress.com/2015/05/youtube-icon.png")
+  .setDescription(`[${song.title}](${song.url})`)
+  .addField("Şarkı Süresi", `${song.durationm}:${song.durations}`, true)
+  .addField("Şarkıyı Açan Kullanıcı", `<@${song.requester}>`, true)
+  .setThumbnail(song.thumbnail)
+  serverQueue.textChannel.send(playingBed);
+}
+  
+  
+  //etiketli muzuk ewqeqw
+  
+  
+  const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+    const p = String(message.content.match(prefixMention));
+  
+  if (message.author.bot) return;
+  if (!message.content.startsWith(p)) return;
+  
+  const arg = message.content.slice(p.length).trim().split(/ +/g);
+  
+    if (!message.content.startsWith(p)) return;
+  var searchString = arg.slice(1).join(' ');
+  var url = arg[1] ? arg[1].replace(/<(.+)>/g, '$1') : '';
+  var serverQueue = queue.get(message.guild.id);
+  
+    switch (arg[0].toLowerCase()) {
+        
+      case "oynat":
+    var voiceChannel = message.member.voiceChannel;
+        
+    const embed = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription("Dinlemek istediğin şarkıyı yazmalısın! (Şarkı ismi veya Youtube URLsi)")
+    if (!url) return message.channel.send(embed);
+        
+    const voiceChannelAdd = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Lütfen herhangi bir sesli kanala katılınız.`)
+    if (!voiceChannel) return message.channel.send(voiceChannelAdd);
+    var permissions = voiceChannel.permissionsFor(message.client.user);
+    if (!permissions.has('CONNECT')) {
+      const warningErr = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Herhangi bir sesli kanala katılabilmek için yeterli iznim yok.`)
+      return message.channel.send(warningErr);
+    }
+    if (!permissions.has('SPEAK')) {
+      const musicErr = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Müzik açamıyorum/şarkı çalamıyorum çünkü kanalda konuşma iznim yok veya mikrofonum kapalı.`)
+      return message.channel.send(musicErr);
+    }
+      if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
+      var playlist = await youtube.getPlaylist(url);
+      var videos = await playlist.getVideos();
+      for (const video of Object.values(videos)) {
+        var video2 = await youtube.getVideoByID(video.id);
+        await handleVideo(video2, message, voiceChannel, true);
+      }
+      const PlayingListAdd = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) İsimli şarkı oynatma listesine Eklendi.`)
+      return message.channel.send(PlayingListAdd);
+    } else {
+      try {
+        var video = await youtube.getVideo(url);
+      } catch (error) {
+      try {
+          var videos = await youtube.searchVideos(searchString, 10);
+          
+          var r = 1
+        
+          var video = await youtube.getVideoByID(videos[r - 1].id);
+        } catch (err) {
+          console.error(err);
+          const songNope = new RichEmbed()
+          .setColor("RANDOM")
+          .setDescription(`Aradığınız isimde bir şarkı bulamadım.`) 
+          return message.channel.send(songNope);
+        }
+      }
+      return handleVideo(video, message, voiceChannel);
+    }
+    break
+       case "tekrar":
+       const e = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`) 
+    if (!message.member.voiceChannel) return message.channel.send(e);
+    const p = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(p);
+        
+    var u = serverQueue.songs[0]
+        
+    /*var pla = await youtube.getPlaylist(u);
+      var v = await pla.getVideos();*/
+      var vi2 = await youtube.getVideoByID(u.id);
+      await handleVideo(vi2, message, voiceChannel, true);
+    const PlayingListAdd = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`[${u.title}](https://www.youtube.com/watch?v=${u.id}) İsimli şarkı bitince tekrar oynatılacak.`)
+    return message.channel.send(PlayingListAdd);
+        
+    break;
+      case "geç":
+      const err0 = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`) 
+    if (!message.member.voiceChannel) return message.channel.send(err0);
+    const err05 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(err05);
+    const songSkip = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla geçildi!`)
+    serverQueue.connection.dispatcher.end('');
+    message.channel.send(songSkip)
+    return undefined;
+break;
+      case "durdur":
+    const err1 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Bir sesli kanalda değilsin.`)  
+    if (!message.member.voiceChannel) return message.channel.send(err1);
+    const err2 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(err2);
+    serverQueue.songs = [];
+    const songEnd = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla durduruldu ve odadan ayrıldım!`)
+    serverQueue.connection.dispatcher.end('');
+    message.channel.send(songEnd);
+    return undefined;
+break;
+      case "ses":
+      const asd1 = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`)  
+    if (!message.member.voiceChannel) return message.channel.send(asd1);
+    const asd2 = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(asd2);
+
+    if (!args[1]) return message.reply("Ses seviyesi ayarlamak için bir sayı yaz!");
+    serverQueue.volume = args[1];
+    if (args[1] > 10) return message.channel.send(`Ses seviyesi en fazla \`10\` olarak ayarlanabilir.`)
+    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+    const volumeLevelEdit = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Ayarlanan Ses Seviyesi: **${args[1]}**`)
+    return message.channel.send(volumeLevelEdit);
+break;
+      case "kuyruk":
+      var siralama = 0;
+        const a = new RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`Bir sesli kanalda değilsin.`)  
+    if (!message.member.voiceChannel) return message.channel.send(a);
+    const b = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şuanda herhangi bir şarkı çalmıyor.`)
+    if (!serverQueue) return message.channel.send(b);
+        
+    var k = serverQueue.songs.map(song => `${++siralama} - [${song.title}](https://www.youtube.com/watch?v=${song.id})`).join('\n').replace(serverQueue.songs[0].title, `**${serverQueue.songs[0].title}**`)
+        
+    const kuyruk = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .addField("Şarkı Kuyruğu", k)
+    return message.channel.send(kuyruk)
+break;
+case "duraklat":
+      if (serverQueue && serverQueue.playing) {
+        serverQueue.playing = false;
+        serverQueue.connection.dispatcher.pause();
+        const asjdhsaasjdha = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla duraklatıldı!`)
+      return message.channel.send(asjdhsaasjdha);
+    }
+    return message.channel.send('Şuanda herhangi bir şarkı çalmıyor.');
+break;
+      case "devamet":
+      if (serverQueue && !serverQueue.playing) {
+        serverQueue.playing = true;
+        serverQueue.connection.dispatcher.resume();
+        const asjdhsaasjdhaadssad = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Şarkı başarıyla devam ettiriliyor...`)
+      return message.channel.send(asjdhsaasjdhaadssad);
+    }
+    return message.channel.send('Şuanda herhangi bir şarkı çalmıyor.');
+  
+
+  return undefined;
+break;
+}
+async function handleVideo(video, message, voiceChannel, playlist = false) {
+  var serverQueue = queue.get(message.guild.id);
+  //console.log(video);
+  var song = {
+    id: video.id,
+    title: video.title,
+    durationh: video.duration.hours,
+    durationm: video.duration.minutes,
+		durations: video.duration.seconds,
+    url: `https://www.youtube.com/watch?v=${video.id}`,
+    thumbnail: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+    requester: message.author.id,
+  };
+  if (!serverQueue) {
+    var queueConstruct = {
+      textChannel: message.channel,
+      voiceChannel: voiceChannel,
+      connection: null,
+      songs: [],
+      volume: 3,
+      playing: true
+    };
+    queue.set(message.guild.id, queueConstruct);
+
+    queueConstruct.songs.push(song);
+
+    try {
+      var connection = await voiceChannel.join();
+      queueConstruct.connection = connection;
+      play(message.guild, queueConstruct.songs[0]);
+    } catch (error) {
+      console.error(`Ses kanalına giremedim HATA: ${error}`);
+      queue.delete(message.guild.id);
+      return message.channel.send(`Ses kanalına giremedim HATA: ${error}`);
+    }
+  } else {
+    serverQueue.songs.push(song);
+    //console.log(serverQueue.songs);
+    if (playlist) return undefined;
+
+    const songListBed = new RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) isimli şarkı kuyruğa eklendi!`)
+    return message.channel.send(songListBed);
+  }
+  return undefined;
+}
+  function play(guild, song) {
+  var serverQueue = queue.get(guild.id);
+
+  if (!song) {
+    serverQueue.voiceChannel.leave();
+    voiceChannel.leave();
+    queue.delete(guild.id);
+    return;
+  }
+  //console.log(serverQueue.songs);
+
+  const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+    .on('end', reason => {
+      if (reason === 'İnternetten kaynaklı bir sorun yüzünden şarkılar kapatıldı.');
+      else console.log(reason);
+      serverQueue.songs.shift();
+      play(guild, serverQueue.songs[0]);
+    })
+    .on('error', error => console.error(error));
+  dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+  
+  const playingBed = new RichEmbed()
+  .setColor("RANDOM")
+  .setAuthor(`Şuanda Oynatılıyor`, "https://davidjhinson.files.wordpress.com/2015/05/youtube-icon.png")
+  .setDescription(`[${song.title}](${song.url})`)
+  .addField("Şarkı Süresi", `${song.durationm}:${song.durations}`, true)
+  .addField("Şarkıyı Açan Kullanıcı", `<@${song.requester}>`, true)
+  .setThumbnail(song.thumbnail)
+  serverQueue.textChannel.send(playingBed);
+}
+  
+  
+  
 });
