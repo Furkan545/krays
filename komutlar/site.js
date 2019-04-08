@@ -5,7 +5,7 @@ var embed = new Discord.RichEmbed()
 
 
 .setTitle(`Sitenizin Linki Aşağıdadır`)
-.setDescription("**https://konyabott.glitch.me**")
+.setDescription("**https://kapot.glitch.me**")
 .setColor("#ff0a0a")
 .setTimestamp()
 message.channel.sendEmbed(embed)
@@ -15,11 +15,12 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["web"],
-  permLevel: 0
+  permLevel: 0,
+  kategori: "ayarlar"
 };
 
 exports.help = {
   name: 'site',
-  description: '',
+  description: 'Sunucunun sitesini gösterir',
   usage: 'test'
 };

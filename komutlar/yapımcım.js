@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 var embed = new Discord.RichEmbed()
 
 .setTitle(`Özel Kodalama Bot Bilgi`)
-.addField(`Kodlayan`,`<@530713851675672587>`)
+.addField(`Kodlayan`,`<@497754710896410654>`)
 .setAuthor(`Bot Bilgi`,message.author.avatarURL,)
 .setColor("GREEN")
 .setThumbnail(client.user.avatarURL) // şş saşlkda guild
@@ -12,8 +12,8 @@ var embed = new Discord.RichEmbed()
 .addField(`Botun Olduğu Sunucu Sayısı`,client.guilds.size) // bu varmı böyle bişe hm unutum 1 dk
 .addField(`Botaki Komut Sayısı`,client.commands.size)
 //oldumu :D ?
-.addField(`Sahip`, `<@530713851675672587>`,true) //imdatt efe dc bak bi haa burda niye hata var
-.addField(`Botun Geliştiricisi`,`<@530713851675672587>`,true)
+.addField(`Sahip`, `<@497754710896410654>`,true) //imdatt efe dc bak bi haa burda niye hata var
+.addField(`Botun Geliştiricisi`,`<@497754710896410654>`,true)
 .addField(`Bot Discord.js Versiyon`,Discord.version)
 .addField(`Bot İd`,client.user.id) //cilent olan herşey botla ilgimi ? timam
 .setTimestamp()
@@ -24,11 +24,12 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["yapıcı"],
-  permLevel: 0
+  permLevel: 0,
+  kategori: "ayarlar"
 };
 
 exports.help = {
   name: 'yapımcım',
-  description: '',
-  usage: 'test'
+  description: 'Yapımcıyı gösterir',
+  usage: 'yapım'
 };
