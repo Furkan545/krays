@@ -30,6 +30,7 @@ dependencies:
   request: 2.88.0
   simple-youtube-api: 5.1.1
   speedtest-net: 1.5.1
+  tcmb-doviz: 1.0.5
   useful-package: 0.0.64
   useful-tools: 0.2.6
   ytdl-core: 0.29.1
@@ -2571,6 +2572,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NjxjITIj04Ffqid5lqr7XdgwM7X61c/Dns073Ly170bPQHLm6jkmelye/eglS++1nfTWktpP6Y2bFXjdPlQqdw==
+  /snekfetch/4.0.4:
+    deprecated: use node-fetch instead
+    dev: false
+    resolution:
+      integrity: sha512-dyycG9fvwtSJqKPfMVOpXt+60qvMGe7vWLwOJDiSJaiAx+hs2EnFChG2bXCWn7ulz+zGzrHdN9/yeEb0YqEPww==
   /sort-keys/2.0.0:
     dependencies:
       is-plain-obj: 1.1.0
@@ -2716,6 +2722,13 @@ packages:
       node: '>=4.5'
     resolution:
       integrity: sha512-LzHF64s5chPQQS0IYBn9IN5h3i98c12bo4NCO7e0sGM2llXQ3p2FGC5sdENN4cTW48O915Sh+x+EXx7XW96xYQ==
+  /tcmb-doviz/1.0.5:
+    dependencies:
+      snekfetch: 4.0.4
+      xml2js: 0.4.19
+    dev: false
+    resolution:
+      integrity: sha512-kpKy8P/ESMUGNs54qXT+pd1ZVeS/JwfhExE6QRFMbG8HVNKyIu0kjPa4ztUKvAw86aGj50+WgWjTO37OqYESeg==
   /timed-out/4.0.1:
     dev: false
     engines:
@@ -2962,6 +2975,7 @@ specifiers:
   request: ^2.88.0
   simple-youtube-api: ^5.1.1
   speedtest-net: ^1.5.1
+  tcmb-doviz: ^1.0.5
   useful-package: ^0.0.64
   useful-tools: ^0.2.6
   ytdl-core: ^0.29.1
