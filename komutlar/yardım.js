@@ -56,7 +56,7 @@ exports.run = async (bot, message, args, dil) => {
 			str += `**${k.charAt(0).toUpperCase() + k.slice(1)}:** \n${help[kategori].join(" \n")}\n\n`
 		}
 
-  message.author.send(str+"**Müzik Komutları:** \n`oynat`: İstenilen şarkıyı oynatır. \n`tekrar`: Çalan şarkıyı bittiği zaman tekrar oynatır. \n`durdur`: Çalan şarkıyı durdurur. \n`duraklat`: Çalan şarkıyı duraklatır. \n`devamet`: Duraklatılmış şarkıyı devam ettirir. \n`ses`: Şarkının sesini ayarlar. \n`geç`: Sıradaki şarkıya geçer. \n`kuyruk`: Şarkı kuyruğunu ve çalan şarkıyı gösterir.", {split: true})
+  message.author.send(str+"**Müzik Komutları:** \n`çal`: İstenilen şarkıyı oynatır. \n`durdur`: Çalan şarkıyı durdurur. \n`duraklat`: Çalan şarkıyı duraklatır. \n`devamet`: Duraklatılmış şarkıyı devam ettirir.", {split: true})
     
   }
   
@@ -91,7 +91,7 @@ exports.run = async (bot, message, args, dil) => {
 			str += `**${k.charAt(0).toUpperCase() + k.slice(1)}:** \n${help[kategori].join(" \n")}\n\n`
 		}
 
-  message.author.send(str + "**Music Commands:** \n`oynat` | `tekrar` | `durdur` | `duraklat` | `devamet` | `ses` | `geç` | `kuyruk`", { split: true })
+  message.author.send(str + "**Music Commands:** \n`oynat` | `durdur` | `duraklat` | `devamet`", { split: true })
     
   }
   
