@@ -196,15 +196,13 @@ return
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['h', 'help', 'y'],
+  aliases: [],
  
-  permLevel: 0,
-  kategori: 'genel'
+  permLevel: 0
 };
 
 exports.help = {
-  name: 'yardım',
-  category: 'genel',
+  name: 'ysdaddasdasdsd',
   description: 'Tüm komutları listeler.',
   usage: 'yardım veya yardım <komut adı>'
 };
