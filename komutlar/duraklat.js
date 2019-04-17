@@ -34,14 +34,20 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-    enabled: true,
-    aliases: ['pause'],
-    permLevel: 0
+  enabled: true, 
+  guildOnly: false, 
+  aliases: ["dur", "durdur"],
+  permLevel: 0,
+  kategori: "müzik",
+  category: "music"
 };
 
 exports.help = {
-    name: 'duraklat',
-    description: 'Çalan şarkıyı duraklatır.',
-    usage: 'duraklat'
+  name: 'duraklat',
+  description: 'Çalan şarkıyı duraklatır',
+  usage: 'dur',
+  enname: 'voting',
+  endescription: 'Allows .',
+  enusage: 'voting <message>'
 };
    

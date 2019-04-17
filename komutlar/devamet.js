@@ -34,14 +34,20 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-    enabled: true,
-    aliases: ['devam-et'],
-    permLevel: 0
+  enabled: true, 
+  guildOnly: false, 
+  aliases: ["devam", "d"],
+  permLevel: 0,
+  kategori: "müzik",
+  category: "music"
 };
 
 exports.help = {
-    name: 'devamet',
-    description: 'Duraklatılmış şarkıyı devam ettirir.',
-    usage: 'devamet'
+  name: 'devamet',
+  description: 'Duraklatılan şarkıyı devam ettirir.',
+  usage: 'deman',
+  enname: 'voting',
+  endescription: 'Allows .',
+  enusage: 'voting <message>'
 };
    

@@ -20,7 +20,7 @@ exports.run = async (bot, message, args, dil) => {
           if (message.channel.type !== 'dm') {
   const ozelmesajkontrol = new Discord.RichEmbed()
   .setColor("RANDOM")
-  .setTitle(`Yanl!`)
+  .setTitle('Yanlış Kullanım Doğru Kullanım `k!bilgi <komut adı>`')
   message.channel.send(ozelmesajkontrol) }
      
      {
@@ -189,15 +189,15 @@ return
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['h', 'help', 'y'],
+  aliases: [],
  
   permLevel: 0,
   kategori: 'genel'
 };
 
 exports.help = {
-  name: 'yardım',
+  name: 'bilgi',
   category: 'genel',
-  description: 'Tüm komutları listeler.',
-  usage: 'yardım veya yardım <komut adı>'
+  description: 'Belirtilen Komut hakkında bilgi verir.',
+  usage: 'bilgi <komut adı>'
 };
