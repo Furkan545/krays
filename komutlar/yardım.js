@@ -1,4 +1,3 @@
-const ayarlar = require('../ayarlar');
 const Discord = require('discord.js');
 
 const sql = require('sql');
@@ -6,7 +5,7 @@ module.exports.run = async function(client, message, args) {
   const hexcols = [0xFFB6C1, 0x4C84C0, 0xAD1A2C, 0x20b046, 0xf2e807, 0xf207d1, 0xee8419];
   const sql = require('sqlite');
   if (message.channel.type == "dm") {
-    var prefix = ayarlar.prefix;
+    var prefix = client.ayarlar.prefix;
   } else {
   }
   function eglence(msg, author) {

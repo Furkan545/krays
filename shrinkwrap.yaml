@@ -30,6 +30,8 @@ dependencies:
   request: 2.88.0
   simple-youtube-api: 5.1.1
   speedtest-net: 1.5.1
+  sql: 0.78.0
+  sqlite: 3.0.3
   tcmb-doviz: 1.0.5
   useful-package: 0.0.64
   useful-tools: 0.2.6
@@ -1661,6 +1663,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Nw0dPoW3Kn4bDN8tJyEhMG8j5O0=
+  /lodash/4.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-KZiUKD3gGp7vvt/0xLmwCmoubpY=
   /lodash/4.17.11:
     dev: false
     resolution:
@@ -1811,6 +1817,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
+  /nan/2.10.0:
+    dev: false
+    resolution:
+      integrity: sha512-bAdJv7fBLhWC+/Bls0Oza+mvTaNQtP+1RyhhhvD95pgUJz6XM5IzgmxOkItJ9tkoCiplvAnXI1tNmmUD/eScyA==
   /nan/2.13.2:
     dev: false
     resolution:
@@ -2567,6 +2577,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-cbWRGTDjWDrC+8LR3gpLaXeRb0+e/eiX/bKYIS0tQ4gBUimhXVhsWWhzWJ49aTBnAA0vChrD3U0ZDL8/CUWNcA==
+  /sliced/0.0.5:
+    dev: false
+    resolution:
+      integrity: sha1-XtwETKTrb3gW1Qui/GPiXY/kcH8=
   /snekfetch/3.6.4:
     deprecated: use node-fetch instead
     dev: false
@@ -2596,6 +2610,37 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-az10ue3vkUUt49p5ommRO5eKXB5GfzyLehWCNRUnO686GjtdXJcSJFPnluc93UdoWTtWbr4fCVeH9Kka1OpHIA==
+  /sql-template-strings/2.2.2:
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    optional: true
+    resolution:
+      integrity: sha1-PxFQiiWt384hejBCqdMAwxk7lv8=
+  /sql/0.78.0:
+    dependencies:
+      lodash: 4.1.0
+      sliced: 0.0.5
+    dev: false
+    resolution:
+      integrity: sha1-iUWF1WER27F2h0Gk2ZNcgshZWUk=
+  /sqlite/3.0.3:
+    dependencies:
+      sqlite3: 4.0.6
+    dev: false
+    optionalDependencies:
+      sql-template-strings: 2.2.2
+    resolution:
+      integrity: sha512-DpofdtBibbiOObtdADGZYE6bvnLpjRG4ut/MDTDau2nK40htOLj1E0c55aOkvbnRVqQ0ZPtjj7PJuKKyS0Ypww==
+  /sqlite3/4.0.6:
+    dependencies:
+      nan: 2.10.0
+      node-pre-gyp: 0.11.0
+      request: 2.88.0
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-EqBXxHdKiwvNMRCgml86VTL5TK1i0IKiumnfxykX0gh6H6jaKijAXvE9O1N7+omfNSawR2fOmIyJZcfe8HYWpw==
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -2975,6 +3020,8 @@ specifiers:
   request: ^2.88.0
   simple-youtube-api: ^5.1.1
   speedtest-net: ^1.5.1
+  sql: ^0.78.0
+  sqlite: ^3.0.3
   tcmb-doviz: ^1.0.5
   useful-package: ^0.0.64
   useful-tools: ^0.2.6
