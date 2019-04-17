@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true, 
   guildOnly: false, 
-  aliases: ["dur", "durdur"],
+  aliases: ["durdurma"],
   permLevel: 0,
   kategori: "müzik",
   category: "music"

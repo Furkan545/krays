@@ -30,13 +30,20 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-    enabled: true,
-    aliases: ['stop'],
-    permLevel: 0
+  enabled: true, 
+  guildOnly: false, 
+  aliases: ["stop"],
+  permLevel: 0,
+  kategori: "müzik",
+  category: "music"
 };
 
 exports.help = {
-    name: 'durdur',
-    description: 'Oynatılan/çalan şarkıyı kapatır.',
-    usage: 'durdur'
+  name: 'durdur',
+  description: 'Çalan/oynatılan şarkıyı kapatır',
+  usage: 'stop',
+  enname: 'voting',
+  endescription: 'Allows .',
+  enusage: 'voting <message>'
 };
+   
