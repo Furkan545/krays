@@ -17,24 +17,22 @@ exports.run = async (bot, message, args, dil) => {
   let command = args[0];
   
    if (!command) {
-     
-     if (message.channel.type !== 'dm') {
+          if (message.channel.type !== 'dm') {
   const ozelmesajkontrol = new Discord.RichEmbed()
   .setColor("RANDOM")
-  .setAuthor(`${bot.user.username} | Yardım`, bot.user.avatarURL)
-  .setTitle(`Özel Mesajlarını Kontrol Et!`)
-  .setDescription(`_Komutlarımı özel mesaj olarak gönderdim!_`);
+  .setTitle(`Yanl!`)
   message.channel.send(ozelmesajkontrol) }
      
-
+     {
       
   const help = {}
 		bot.commands.filter(c => c.help.name !== "dil-değiştir").filter(c => c.help.name !== "test").forEach((command) => {
 			const cat = command.conf.kategori;
 			if (!help.hasOwnProperty(cat)) help[cat] = [];
 			help[cat].push(`\`${command.help.name}\`: ${command.help.description}`);
+      
 		})
-		var str = "```yaml\n"+bot.user.username+" - Komut Listesi\n``` \n[Bir komut hakkında ayrıntılı bilgi almak için `"+bot.ayarlar.prefix+"yardım <komut adı>` yazabilirsiniz. Örneğin; `"+bot.ayarlar.prefix+"yardım bilgi`]\n\n"
+		
 		for (const kategori in help) {
       var k = kategori
       .replace("eğlence", "eğlence komutları")
@@ -52,17 +50,15 @@ exports.run = async (bot, message, args, dil) => {
       .replace("efekt", "çerçeve ve efekt komutları")
       .replace("premium", "premium komutlar (Ücretsiz)")
       .replace("lvl", "Seviye Sistemi")
-      
-			str += `**${k.charAt(0).toUpperCase() + k.slice(1)}:** \n${help[kategori].join(" \n")}\n\n`
+    
 		}
 
-  message.author.send(str+"**Müzik Komutları:** \n`oynat`: İstenilen şarkıyı oynatır. \n`tekrar`: Çalan şarkıyı bittiği zaman tekrar oynatır. \n`durdur`: Çalan şarkıyı durdurur. \n`duraklat`: Çalan şarkıyı duraklatır. \n`devamet`: Duraklatılmış şarkıyı devam ettirir. \n`ses`: Şarkının sesini ayarlar. \n`geç`: Sıradaki şarkıya geçer. \n`kuyruk`: Şarkı kuyruğunu ve çalan şarkıyı gösterir.", {split: true})
     
   }
   
      //ingilizce
      
-  if (db.has(`dil_${message.guild.id}`) === true) {
+     {
     
     const help = {}
 		bot.commands.filter(c => c.help.enname !== "set-language").filter(c => c.help.name !== "test").forEach((command) => {
@@ -70,7 +66,6 @@ exports.run = async (bot, message, args, dil) => {
 			if (!help.hasOwnProperty(cat)) help[cat] = [];
 			help[cat].push(`\`${command.help.enname}\` ${command.help.endescription}`);
 		})
-		var str = "```yaml\n"+bot.user.username+" - Command List\n``` \n[Bir komut hakkında ayrıntılı bilgi almak için `"+bot.ayarlar.prefix+"yardım <komut adı>` yazabilirsiniz. Örneğin; `"+bot.ayarlar.prefix+"yardım bilgi`]\n\n"
 		for (const kategori in help) {
       var k = kategori
       .replace("eğlence", "fun commands")
@@ -88,10 +83,8 @@ exports.run = async (bot, message, args, dil) => {
       .replace("efekt", "frame commands")
       .replace("lvl", "Level System")
       
-			str += `**${k.charAt(0).toUpperCase() + k.slice(1)}:** \n${help[kategori].join(" \n")}\n\n`
-		}
+      }
 
-  message.author.send(str + "**Music Commands:** \n`oynat` | `tekrar` | `durdur` | `duraklat` | `devamet` | `ses` | `geç` | `kuyruk`", { split: true })
     
   }
   
