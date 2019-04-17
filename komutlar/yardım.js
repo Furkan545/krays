@@ -1,235 +1,210 @@
 const Discord = require('discord.js');
+//const ayarlar = require('../ayarlar.json');
+const { stripIndents, oneLine } = require('common-tags');
+const db = require('quick.db');
 
-const sql = require('sql');
-module.exports.run = async function(client, message, args) {
-  const hexcols = [0xFFB6C1, 0x4C84C0, 0xAD1A2C, 0x20b046, 0xf2e807, 0xf207d1, 0xee8419];
-  const sql = require('sqlite');
-  if (message.channel.type == "dm") {
-    var prefix = client.ayarlar.prefix;
-  } else {
+exports.run = async (bot, message, args, dil) => {
+  
+  
+  
+  
+  const ayarlar = bot.ayarlar
+  
+  var prefix = ayarlar.prefix
+  
+  //if (message.author.id !== "441169716547944448") return message.reply("Bir süre devre dışıdır!")
+  
+  let command = args[0];
+  
+   if (!command) {
+     
+     if (message.channel.type !== 'dm') {
+  const ozelmesajkontrol = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setAuthor(`${bot.user.username} | Yardım`, bot.user.avatarURL)
+  .setTitle(`Özel Mesajlarını Kontrol Et!`)
+  .setDescription(`_Komutlarımı özel mesaj olarak gönderdim!_`);
+  message.channel.send(ozelmesajkontrol) }
+     
+
+      
+  const help = {}
+		bot.commands.filter(c => c.help.name !== "dil-değiştir").filter(c => c.help.name !== "test").forEach((command) => {
+			const cat = command.conf.kategori;
+			if (!help.hasOwnProperty(cat)) help[cat] = [];
+			help[cat].push(`\`${command.help.name}\`: ${command.help.description}`);
+		})
+		var str = "```yaml\n"+bot.user.username+" - Komut Listesi\n``` \n[Bir komut hakkında ayrıntılı bilgi almak için `"+bot.ayarlar.prefix+"yardım <komut adı>` yazabilirsiniz. Örneğin; `"+bot.ayarlar.prefix+"yardım bilgi`]\n\n"
+		for (const kategori in help) {
+      var k = kategori
+      .replace("eğlence", "eğlence komutları")
+      .replace("kullanıcı", "kullanıcı komutları")
+      .replace("sunucu", "sunucu komutları")
+      .replace("profil", "profil sistemi")
+      .replace("moderasyon", "moderasyon komutları")
+      .replace("bot", "bot komutları")
+      .replace("iletisim", "bot iletişim - destek komutları")
+      .replace("yapımcı", "bot yapımcısı komutları")
+      .replace("oyun", "oyun komutları")
+      .replace("ayarlar", "ayarlar")
+      .replace("özel", "özel komut sistemi")
+      .replace("genel", "genel komutlar")
+      .replace("efekt", "çerçeve ve efekt komutları")
+      .replace("premium", "premium komutlar (Ücretsiz)")
+      .replace("lvl", "Seviye Sistemi")
+      
+			str += `**${k.charAt(0).toUpperCase() + k.slice(1)}:** \n${help[kategori].join(" \n")}\n\n`
+		}
+
+  message.author.send(str+"**Müzik Komutları:** \n`oynat`: İstenilen şarkıyı oynatır. \n`tekrar`: Çalan şarkıyı bittiği zaman tekrar oynatır. \n`durdur`: Çalan şarkıyı durdurur. \n`duraklat`: Çalan şarkıyı duraklatır. \n`devamet`: Duraklatılmış şarkıyı devam ettirir. \n`ses`: Şarkının sesini ayarlar. \n`geç`: Sıradaki şarkıya geçer. \n`kuyruk`: Şarkı kuyruğunu ve çalan şarkıyı gösterir.", {split: true})
+    
   }
-  function eglence(msg, author) {
-    msg.edit(`Tüm komutlara ulaşmak için \`+yardım full\`\n\nVeya \`+yardım [komut]\` yazarak komut hakkında bilgi alabilirsiniz.\n\n| :information_source: Bilgi | :game_die: Eğlence | :musical_note: Müzik | :tools: Yetkili |\n
-:game_die: **Eğlence Komutları**\n
-\`\`\`
-alkış  emojiyazı   mcskin  slots  tersrenk  roblox
-şifre  balık  csgo  8ball  asci  hesapla
-\`\`\``).then(m => {
-      m.awaitReactions((reaction, user) => user.id === author.id, {
-        max: 1,
-        time: 60000
-      }).then(reactions => {
-        if(reactions.first() == undefined) return;
-        if (reactions.first().emoji.name == "🎲") {
-          eglence(m, author);
-        } else if (reactions.first().emoji.name == "ℹ") {
-          bilgi(m, author);
-        } else if (reactions.first().emoji.name == "🎵") {
-          müzik(m, author);
-        } else if (reactions.first().emoji.name == "🛠") {
-          yetkili(m, author);
+  
+     //ingilizce
+     
+  if (db.has(`dil_${message.guild.id}`) === true) {
+    
+    const help = {}
+		bot.commands.filter(c => c.help.enname !== "set-language").filter(c => c.help.name !== "test").forEach((command) => {
+			const cat = command.conf.kategori;
+			if (!help.hasOwnProperty(cat)) help[cat] = [];
+			help[cat].push(`\`${command.help.enname}\` ${command.help.endescription}`);
+		})
+		var str = "```yaml\n"+bot.user.username+" - Command List\n``` \n[Bir komut hakkında ayrıntılı bilgi almak için `"+bot.ayarlar.prefix+"yardım <komut adı>` yazabilirsiniz. Örneğin; `"+bot.ayarlar.prefix+"yardım bilgi`]\n\n"
+		for (const kategori in help) {
+      var k = kategori
+      .replace("eğlence", "fun commands")
+      .replace("kullanıcı", "user commands")
+      .replace("sunucu", "server commands")
+      .replace("profil", "profile system")
+      .replace("moderasyon", "moderation commands")
+      .replace("bot", "bot commands")
+      .replace("iletisim", "bot contact - support commands")
+      .replace("yapımcı", "bot owner commands")
+      .replace("oyun", "game commands")
+      .replace("ayarlar", "settings")
+      .replace("özel", "special command system")
+      .replace("genel", "general commands")
+      .replace("efekt", "frame commands")
+      .replace("lvl", "Level System")
+      
+			str += `**${k.charAt(0).toUpperCase() + k.slice(1)}:** \n${help[kategori].join(" \n")}\n\n`
+		}
+
+  message.author.send(str + "**Music Commands:** \n`oynat` | `tekrar` | `durdur` | `duraklat` | `devamet` | `ses` | `geç` | `kuyruk`", { split: true })
+    
+  }
+  
+return
+}
+
+  if (command) {
+    
+    if (bot.commands.has(command) ? bot.commands.has(command) : bot.aliases.has(command)) {
+      var cmd = bot.commands.get(command) ? bot.commands.get(command) : bot.commands.get(bot.aliases.get(command))
+      
+  var s = 'tr'
+  var komut = cmd.help.name
+  var a = cmd.help.description
+  var u = cmd.help.usage
+  var k = cmd.conf.kategori
+  var yetki = cmd.conf.permLevel.toString()
+			.replace("0", `Yetki gerekmiyor.`)
+			.replace("1", `Mesajları Yönet yetkisi gerekiyor.`)
+			.replace("2", `Üyeleri At yetkisi gerekiyor.`)
+      .replace("3", `Üyeleri Yasakla yetkisi gerekiyor.`)
+			.replace("4", `Yönetici yetkisi gerekiyor.`)
+			.replace("5", `Bot Sahibi yetkisi gerekiyor.`)
+  
+    if(db.has(`dil_${message.guild.id}`) === true) {
+        var s = 'en'
+        var komut = cmd.help.enname
+        var a = cmd.help.endescription
+        var u = cmd.help.enusage
+        var k = cmd.conf.category
+        var yetki = cmd.conf.permLevel.toString()
+			.replace("0", `No permission required.`)
+			.replace("1", `Manage Messages permission is required.`)
+			.replace("2", `Members Kick permission is required.`)
+      .replace("3", `Members Ban permission is required.`)
+			.replace("4", `Administrator permission is required.`)
+			.replace("5", `Bot owner permission is required.`)
+        
         }
-      })
-    });
-  };
-
-  function bilgi(msg, author) {
-    msg.edit(`Tüm komutlara ulaşmak için \`+yardım full\`\n\nVeya \`+yardım [komut]\` yazarak komut hakkında bilgi alabilirsiniz.\n\n| :information_source: Bilgi | :game_die: Eğlence | :musical_note: Müzik | :tools: Yetkili |\n
-:information_source: **Bilgi Komutları**\n
-\`\`\`
-yardım  istatistik   üyeler   üyebilgi   havadurumu
-sunucu    davet    ping    yetkilerim   çeviri
-\`\`\``).then(m => {
-      m.awaitReactions((reaction, user) => user.id === author.id, {
-        max: 1,
-        time: 60000
-      }).then(reactions => {
-        if(reactions.first() == undefined) return;
-        if (reactions.first().emoji.name == "🎲") {
-          eglence(m, author);
-        } else if (reactions.first().emoji.name == "ℹ") {
-          bilgi(m, author);
-        } else if (reactions.first().emoji.name == "🎵") {
-          müzik(m, author);
-        } else if (reactions.first().emoji.name == "🛠") {
-          yetkili(m, author);
-        }
-      });
-    });
-  };
-
-  function müzik(msg, author) {
-    msg.edit(`Tüm komutlara ulaşmak için \`+yardım full\`\n\nVeya \`+yardım [komut]\` yazarak komut hakkında bilgi alabilirsiniz.\n\n| :information_source: Bilgi | :game_die: Eğlence | :musical_note: Müzik | :tools: Yetkili |\n
-:musical_note: **Müzik Komutları**\n
-\`\`\`
-katıl  ayrıl   çal   durdur
-duraklat   ses   geç  devamet  kuyruk  çalan
-\`\`\``).then(m => {
-      m.awaitReactions((reaction, user) => user.id === author.id, {
-        max: 1,
-        time: 60000
-      }).then(reactions => {
-        if(reactions.first() == undefined) return;
-        if (reactions.first().emoji.name == "🎲") {
-          eglence(m, author);
-        } else if (reactions.first().emoji.name == "ℹ") {
-          bilgi(m, author);
-        } else if (reactions.first().emoji.name == "🎵") {
-          müzik(m, author);
-        } else if (reactions.first().emoji.name == "🛠") {
-          yetkili(m, author);
-        }
-      });
-    });
-  };
-
-  function yetkili(msg, author) {
-    msg.edit(`Tüm komutlara ulaşmak için \`+yardım full\`\n\nVeya \`+yardım [komut]\` yazarak komut hakkında bilgi alabilirsiniz.\n\n| :information_source: Bilgi | :game_die: Eğlence | :musical_note: Müzik | :tools: Yetkili |\n
-:tools: **Yetkili Komutları**\n
-\`\`\`
-ban  uyar  sustur   yaz   kilitle
-temizle   yavaş-mod   otorol   rolver  clear
-\`\`\``).then(m => {
-      m.awaitReactions((reaction, user) => user.id === author.id, {
-        max: 1,
-        time: 60000
-      }).then(reactions => {
-        if(reactions.first() == undefined) return;
-        if (reactions.first().emoji.name == "🎲") {
-          eglence(m, author);
-        } else if (reactions.first().emoji.name == "ℹ") {
-          bilgi(m, message.author);
-        } else if (reactions.first().emoji.name == "🎵") {
-          müzik(m, author);
-        } else if (reactions.first().emoji.name == "🛠") {
-          yetkili(m, author);
-        }
-      });
-    });
-  };
-
-  if (!args[0]) {
-
-    message.channel.send(`Tüm komutlara ulaşmak için \`+yardım full\`\n\nVeya \`+yardım [komut]\` yazarak komut hakkında bilgi alırsınız.\n\n| :information_source: Bilgi | :game_die: Eğlence | :musical_note: Müzik | :tools: Yetkili |\n
-:information_source: **Bilgi Komutları**\n
-\`\`\`
-yardım  istatistik   üyeler   üyebilgi   havadurumu
-sunucu    davet    ping    yetkilerim   çeviri
-\`\`\``).then(m => {
-      m.react("\u2139");
-      m.react("\uD83C\uDFB2");
-      m.react("\uD83C\uDFB5");
-      m.react("\uD83D\uDEE0");
-      m.awaitReactions((reaction, user) => user.id === message.author.id, {
-        max: 1,
-        time: 60000
-      }).then(reactions => {
-        if(reactions.first() == undefined) return;
-        if (reactions.first().emoji.name == "🎲") {
-          eglence(m, message.author);
-        } else if (reactions.first().emoji.name == "ℹ") {
-          bilgi(m, message.author);
-        } else if (reactions.first().emoji.name == "🎵") {
-          müzik(m, message.author);
-        } else if (reactions.first().emoji.name == "🛠") {
-          yetkili(m, message.author);
-        }
-      });
-    });
-
-  } else {
-    if(args == "full") {
-
-    const bilgi = new Discord.RichEmbed()
-    .setTitle("Bilgi Komutları")
-    .setColor(hexcols[~~(Math.random() * hexcols.length)])
-    .addField(ayarlar.prefix + `yardım [komut]`, 'Komut hakkında bilgi alırsınız')
-    .addField(ayarlar.prefix + `istatistik`, 'Bot hakkında bilgi alırsınız')
-    .addField(ayarlar.prefix + `sunucu`, 'Sunucu hakkında bilgi verir')
-    .addField(ayarlar.prefix + `üyebilgi <kullanıcı>`, 'Üye hakkında bilgi alırsınız')
-    .addField(ayarlar.prefix + `hava <şehir>`, 'Shows you the weather forecast for the location specified')
-    .addField(ayarlar.prefix + `davet`, 'Sunucunun Davet linkini oluşturur')
-    .addField(ayarlar.prefix + `çeviri`, 'Çeviri yaparsınız')
-    .addField(ayarlar.prefix + `ping`, 'Botun pingini öğrenirsiniz')
-    message.author.send({embed: bilgi});
-
-    const genel = new Discord.RichEmbed()
-    .setTitle("Genel Komutlar")
-    .setColor(hexcols[~~(Math.random() * hexcols.length)])
-    .addField(ayarlar.prefix + `asci`, 'Yazıyı farklı şekilde yazar.!')
-    .addField(ayarlar.prefix + `csgo`, 'Csgo bilgilerinizi gösterir')
-    .addField(ayarlar.prefix + `hesapla`, 'Hesap yaparsınız')
-    .addField(ayarlar.prefix + `kısalt`, 'Link kısaltırsınız');
-    message.author.send({embed: genel});
-
-    const yetkili = new Discord.RichEmbed()
-    .setTitle("Moderatör Komutları")
-    .setColor(hexcols[~~(Math.random() * hexcols.length)])
-    .addField(ayarlar.prefix + `temizle <0-100>`, 'Mesaj silersiniz 0 ve 100 arasında bir değer girmeniz gerekmektedir')
-    .addField(ayarlar.prefix + `ban <kullanıcı> <sebep>`, 'Kullanıcıyı sunucudan atarsınız')
-    .addField(ayarlar.prefix + `uyarı <kullanıcı> <sebep>`, 'Kullanıcıya uyarıda bulunursunuz');
-    message.author.send('', {embed: yetkili});
-
-    const admin = new Discord.RichEmbed()
-    .setTitle("Admin Komutları")
-    .setColor(hexcols[~~(Math.random() * hexcols.length)])
-    .addField(ayarlar.prefix + `yaz`, 'Bota yazı yadırırsınız')
-    .addField(ayarlar.prefix + `unban`, 'Ban kaldırırsınız')
-    .addField(ayarlar.prefix + `kilitle`, 'Kanalı kilitlersiniz')
-    .addField(ayarlar.prefix + `otorol`, 'Sunucuya giren kişilere otomatik olarak belirlediğiniz rolü verir')
-    .addField(ayarlar.prefix + `yavaş-mod <0-120>`, 'Kanalı yavaş moda geçirirsiniz');
-    message.author.send({embed: admin});
-
-    const müzik = new Discord.RichEmbed()
-    .setTitle('Müzik Komutları')
-    .setColor(hexcols[~~(Math.random() * hexcols.length)])
-    .addField(ayarlar.prefix + `katıl`, 'Bulunduğunuz sesli kanala katılır')
-    .addField(ayarlar.prefix + `ayrıl`, 'Sesli kanaldan ayrılır')
-    .addField(ayarlar.prefix + `çal`, 'Müzik dinlersiniz')
-    .addField(ayarlar.prefix + `durdur`, 'Çalan müziği durdurur')
-    .addField(ayarlar.prefix + `kuyruk`, 'Şarkı kuyruğunu gösterir')
-    .addField(ayarlar.prefix + `geç`, 'Bir sonraki müziğe geçer');
-    message.author.send({embed: müzik});
-
-    const eglence = new Discord.RichEmbed()
-    .setTitle("Eğlence Komutları")
-    .setColor(hexcols[~~(Math.random() * hexcols.length)])
-    .addField(ayarlar.prefix + `sor`, 'Botla konuşursunuz')
-    .addField(ayarlar.prefix + `sahtemesaj`, 'Belirlediğiniz kişi hakkında sahte mesaj gönderir')
-    .addField(ayarlar.prefix + `alkış`, 'Alkış resmi gönderir')
-    .addField(ayarlar.prefix + `mesajdöndür`, 'Yazdığınız yazıyı döndürür')
-    .addField(ayarlar.prefix + 'emojiyazı', 'Yazdığınız yazıyı emoji şeklinde yazar')
-    .addField(ayarlar.prefix + `slots`, 'Slot oyunu oynarsınız')
-    .addField(ayarlar.prefix + `sigara`, 'Sigara içersiniz')
-    .addField(ayarlar.prefix + `efkar`, 'Efkar mesajı gönderir')
-    .addField(ayarlar.prefix + `tersrenk`, 'Avatarınızın rengini değiştirir');
-    return message.author.send({embed: eglence});
+      
+			const embed = new Discord.RichEmbed()
+				.addField(dil.yardım.komut, komut)
+				.addField(dil.yardım.aciklama, a || dil.dont)//command.help.description || "Bulunmuyor")
+        .addField(dil.yardım.kategori, k || dil.dont)//command.conf.kategori || "Bulunmuyor")
+				.addField(dil.yardım.yetki, yetki || dil.unknow)
+				.addField(dil.yardım.kullanim, u || dil.dont)//command.help.usage || "Bilinmiyor")
+				.addField(dil.yardım.aliases, cmd.conf.aliases.join(', ') || dil.dont)
+				.setColor("RANDOM")
+			 message.channel.send({embed: embed})
+      
+		} else if (bot.english.has(command) ? bot.english.has(command) : bot.aliases.has(command)) {
+      var cmd = bot.english.get(command) ? bot.english.get(command) : bot.commands.get(bot.aliases.get(command));
+      
+  var s = 'tr'
+  var komut = cmd.help.name
+  var a = cmd.help.description
+  var u = cmd.help.usage
+  var k = cmd.conf.kategori
+  var yetki = cmd.conf.permLevel.toString()
+			.replace("0", `Yetki gerekmiyor.`)
+			.replace("1", `Mesajları Yönet yetkisi gerekiyor.`)
+			.replace("2", `Üyeleri At yetkisi gerekiyor.`)
+      .replace("3", `Üyeleri Yasakla yetkisi gerekiyor.`)
+			.replace("4", `Yönetici yetkisi gerekiyor.`)
+			.replace("5", `Bot Sahibi yetkisi gerekiyor.`)
+  
+    if(db.has(`dil_${message.guild.id}`) === true) {
+        var s = 'en'
+        var komut = cmd.help.enname
+        var a = cmd.help.endescription
+        var u = cmd.help.enusage
+        var k = cmd.conf.category
+        var yetki = cmd.conf.permLevel.toString()
+			.replace("0", `No permission required.`)
+			.replace("1", `Manage Messages permission is required.`)
+			.replace("2", `Members Kick permission is required.`)
+      .replace("3", `Members Ban permission is required.`)
+			.replace("4", `Administrator permission is required.`)
+			.replace("5", `Bot owner permission is required.`)
+        
     }
-    let commands = args[0];
-    if (client.commands.has(commands)) {
-      commands = client.commands.get(commands);
-      const komutbilgi = new Discord.RichEmbed()
-      .setAuthor(`${message.author.username}`, message.author.avatarURL)
-      .setTitle("Komut Hakkında Bilgiler")
-      .setColor("BLUE")
-      .setThumbnail("https://i.postimg.cc/6Q6CY3pQ/pff-xir.gif")
-      .addField("**Komut İsmi**",`${commands.help.name}`)
-      .addField("**Komut Açıklaması**",`${commands.help.description}`)
-      .addField("**Komut Kullanımı**",`${commands.help.usage}`)
-      message.channel.send(komutbilgi);
+      
+			const embed = new Discord.RichEmbed()
+				.addField(dil.yardım.komut, komut)
+				.addField(dil.yardım.aciklama, a || dil.dont)//command.help.description || "Bulunmuyor")
+        .addField(dil.yardım.kategori, k || dil.dont)//command.conf.kategori || "Bulunmuyor")
+				.addField(dil.yardım.yetki, yetki || dil.unknow)
+				.addField(dil.yardım.kullanim, u || dil.dont)//command.help.usage || "Bilinmiyor")
+				.addField(dil.yardım.aliases, cmd.conf.aliases.join(', ') || dil.dont)
+				.setColor("RANDOM")
+			 message.channel.send({embed: embed})
+		} else {
+			const embed = new Discord.RichEmbed()
+				.setDescription(`Botta ${args[0]} isminde bir komut bulunamadı! Botun tüm komutlarını ${ayarlar.prefix}yardım yazarak öğrenebilirsiniz.`)
+				.setColor("RANDOM")
+			message.channel.send({embed})
     }
+    return
   }
 };
-module.exports.conf = {
+
+exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["help","y","h"],
-  permLevel: 0
+  aliases: ['h', 'help', 'y'],
+ 
+  permLevel: 0,
+  kategori: 'genel'
 };
 
-module.exports.help = {
+exports.help = {
   name: 'yardım',
-  description: 'Yardım komutlarını görürsünüz',
-  usage: 'yardım'
+  category: 'genel',
+  description: 'Tüm komutları listeler.',
+  usage: 'yardım veya yardım <komut adı>'
 };
-//XiR
