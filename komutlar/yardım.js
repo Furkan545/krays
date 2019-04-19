@@ -20,7 +20,7 @@ exports.run = async (bot, message, args, dil) => {
           if (message.channel.type !== 'dm') {
   const ozelmesajkontrol = new Discord.RichEmbed()
   .setColor("RANDOM")
-  .setTitle('Yanlış Kullanım Doğru Kullanım `k!bilgi <komut adı>`')
+  .setTitle('Yanlış Kullanım Doğru Kullanım `o!bilgi <komut adı>`')
   message.channel.send(ozelmesajkontrol) }
      
      {

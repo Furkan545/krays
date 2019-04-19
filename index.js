@@ -20,7 +20,6 @@ const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const chalk = require('chalk');
 const fs = require('fs');
-let hereEngel = JSON.parse(fs.readFileSync("././jsonlar/hereEngelle.json", "utf8"));
 const { stripIndents } = require('common-tags');
 const moment = require('moment');
 require('./util/eventLoader')(client);
@@ -1425,25 +1424,6 @@ client.login('NTY3MzczMzkyMjk1MjMxNTMw.XLSmCg.vzoF7wzs8COPtlBwq2Sc7roV-cA');
 
 
 
-client.on("message", msg => {
-  if (!msg.guild) return;
-  if (!hereEngel[msg.guild.id]) return;
-  if (hereEngel[msg.guild.id].hereEngel === 'kapali') return;
-    if (hereEngel[msg.guild.id].hereEngel=== 'acik') {
-      const here = ["@Yasin Türkeş Youtube#1374"];
-  if (here.some(word => msg.content.toLowerCase().includes(word)) ) {
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
-      msg.delete()
-       msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete());
-        var e = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setAuthor("Bu Kişiyi etiketleyemezsin!")
-        .setDescription(`Bu sunucuda Everyone ve Here yasak!`)
-        msg.channel.send(e).then(message => message.delete(5000));
-    }
-}
-    }
-});
 
 
 client.on("message", async msg => {
