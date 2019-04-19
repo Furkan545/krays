@@ -20,28 +20,28 @@ const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const chalk = require('chalk');
 const fs = require('fs');
+let hereEngel = JSON.parse(fs.readFileSync("././jsonlar/hereEngelle.json", "utf8"));
 const { stripIndents } = require('common-tags');
 const moment = require('moment');
 require('./util/eventLoader')(client);
 const db = require('quick.db');
 const snekfetch = require('snekfetch');
-client.queue = new Map()
-   
+
 client.config = require("./config.js");
 require("./modules/functions.js")(client);
 
 client.ayar = db;
 
 client.ayarlar = {
-        "official_sahip": ["497754710896410654", "497754710896410654"],
-        "sahip": [],
-        "yardimcilar": [''],
-        "isim": "KAPOT BOT",
-        "botD": "https://discordapp.com/oauth2/authorize?client_id=561835095997022232&scope=bot&permissions=2146958847",
-        "webS": "https://kapot.glitch.me",
-        "web": "https://kapot.glitch.me",
+        "official_sahip": ["449180842162520070", "449180842162520070"],
+        "sahip": ['449180842162520070'],
+        "yardimcilar": ['449180842162520070'],
+        "isim": "",
+        "botD": "https://discordapp.com/oauth2/authorize?client_id=567373392295231530&scope=bot&permissions=2146958847",
+        "webS": "https://osman8x.glitch.me",
+        "web": "https://osman8x.glitch.me",
         "versiyon": "0.0.1",
-        "prefix": "k!",
+        "prefix": "o!",
         "radyo": ["Fenomen FM", "Kral FM", "Power Türk FM", "Joy", "Metro"],
         "secenek": ["tr", "en"],
         "yenilik": [
@@ -84,7 +84,7 @@ client.on("ready", async () => {
   
   console.log(`${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor!")}`)
   client.user.setStatus("dnd");
-  client.user.setActivity(`${client.ayarlar.prefix}yardım | ${client.ayarlar.web}`, { type: 'WATCHING' });
+  client.user.setActivity(`${client.ayarlar.prefix}yardım | Osman8x`, { type: 'WATCHING' });
   
 })
 
@@ -260,7 +260,7 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
 client.on("guildCreate",guild => {
   const e = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setDescription("Beni Sunucuna Eklediğin İçin Teşekkür Ederim, \n Bir Ayar Komudunu Kapatmak İçin `k!ayarlar kapat` Yazarak Nasıl Kapatacağınızı Görebilirsiniz. \n Ayrıca Komutlarımı görmek için `k!yardım` yazabilirsiniz\n [DESTEK SUNUCUM](https://discord.gg/pRnzwpH) \n [WEB PANELİM](https://kapot.glitch.me)")
+  .setDescription("Beni Sunucuna Eklediğin İçin Teşekkür Ederim, \n Bir Ayar Komudunu Kapatmak İçin `t!ayarlar kapat` Yazarak Nasıl Kapatacağınızı Görebilirsiniz. \n Ayrıca Komutlarımı görmek için `t!yardım` yazabilirsiniz\n [DESTEK SUNUCUM](https://discord.gg/Vm2tXfF) \n [WEB PANELİM](https://turkestr.glitch.me/)")
           .setFooter("Bu Mesaj Sadece Size Gönderilmiştir.")
 guild.owner.send(e)
 })
@@ -453,7 +453,7 @@ client.on('guildCreate', async guild => {
             var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  var guildhook = new Discord.WebhookClient("webhook id", "webhook token")
+  var guildhook = new Discord.WebhookClient("558210390782377995", "2U3PKeQQNSraOfzxZ0yjqWXZd-WufsTNzN4xZEtsE1YC4RaeOZzB7NH0-41TUInrme9n")
   const server = new RichEmbed()
   .setColor('0x36393F')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)
@@ -556,7 +556,7 @@ client.on("guildDelete", async guild => {
             var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  var guildhook = new Discord.WebhookClient("webhook id", "webhook token")
+  var guildhook = new Discord.WebhookClient("559452597191180299", "NTYxODM1MDk1OTk3MDIyMjMy.XKB_uw.hn7G5LNvRUlCOWvsfNTcmE5wzz8")
   const server = new RichEmbed()
   .setColor('0x36393F')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)
@@ -1416,11 +1416,39 @@ client.on("message", async msg => {
   };
 });
 
-
-client.login('NTYxODM1MDk1OTk3MDIyMjMy.XKB_uw.hn7G5LNvRUlCOWvsfNTcmE5wzz8');
-
-
-/////////////////////////////////////////////////////////////////////////////////
+  
+  
+  
 
 
+client.login('NTY3MzczMzkyMjk1MjMxNTMw.XLSmCg.vzoF7wzs8COPtlBwq2Sc7roV-cA');
 
+
+
+client.on("message", msg => {
+  if (!msg.guild) return;
+  if (!hereEngel[msg.guild.id]) return;
+  if (hereEngel[msg.guild.id].hereEngel === 'kapali') return;
+    if (hereEngel[msg.guild.id].hereEngel=== 'acik') {
+      const here = ["@Yasin Türkeş Youtube#1374"];
+  if (here.some(word => msg.content.toLowerCase().includes(word)) ) {
+    if (!msg.member.hasPermission("ADMINISTRATOR")) {
+      msg.delete()
+       msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete());
+        var e = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor("Bu Kişiyi etiketleyemezsin!")
+        .setDescription(`Bu sunucuda Everyone ve Here yasak!`)
+        msg.channel.send(e).then(message => message.delete(5000));
+    }
+}
+    }
+});
+
+
+client.on("message", async msg => {
+if (msg.isMentioned("449180842162520070")) {
+msg.delete();
+msg.reply('**Sahibimi Etiketleyemezsin !**');
+};
+});
