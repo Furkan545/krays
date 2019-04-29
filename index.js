@@ -1420,15 +1420,4 @@ client.on("message", async msg => {
   
 
 
-client.login('NTY3MzczMzkyMjk1MjMxNTMw.XLSmCg.vzoF7wzs8COPtlBwq2Sc7roV-cA');
-
-
-
-
-
-client.on("message", async msg => {
-if (msg.isMentioned("449180842162520070")) {
-msg.delete();
-msg.reply('**Sahibimi Etiketleyemezsin !**');
-};
-});
+client.login('TOKEN BURAYAAAAAAAAAAAAAAAAAAAAAAA');
