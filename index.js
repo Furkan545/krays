@@ -32,9 +32,9 @@ require("./modules/functions.js")(client);
 client.ayar = db;
 
 client.ayarlar = {
-        "official_sahip": ["449180842162520070", "449180842162520070"],
-        "sahip": ['449180842162520070'],
-        "yardimcilar": ['449180842162520070'],
+        "official_sahip": ["455828028757639168"],
+        "sahip": ['455828028757639168'],
+        "yardimcilar": ['455828028757639168'],
         "isim": "",
         "botD": "https://discordapp.com/oauth2/authorize?client_id=567373392295231530&scope=bot&permissions=2146958847",
         "webS": "",
