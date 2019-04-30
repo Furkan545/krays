@@ -40,7 +40,7 @@ client.ayarlar = {
         "webS": "",
         "web": "",
         "versiyon": "0.0.1",
-        "prefix": "o!",
+        "prefix": "k+",
         "radyo": ["Fenomen FM", "Kral FM", "Power Türk FM", "Joy", "Metro"],
         "secenek": ["tr", "en"],
         "yenilik": [
