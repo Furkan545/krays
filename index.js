@@ -1420,4 +1420,4 @@ client.on("message", async msg => {
   
 
 
-client.login('TOKEN BURAYAAAAAAAAAAAAAAAAAAAAAAA');
+client.login('NTcyNTI5MTc5Mzg4NTQzMDI0.XMhU7w.Qgn3Y7z-dOPzXHozE6_jaKdPfZk');
