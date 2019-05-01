@@ -1532,10 +1532,10 @@ bot.on('raw', event => {
 });
 
 const serverStats = {
-  guildID: '572796029129457674',
-  totalUsersID: '573162170183843860',
-  memberCountID: '573161715806633988',
-  botCountID: '573162237561274368'
+  guildID: '572528799003181089',
+  totalUsersID: '573263300431839232',
+  memberCountID: '573263239522287656',
+  botCountID: '573263344916496393'
 
 };
 
