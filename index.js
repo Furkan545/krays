@@ -24,6 +24,7 @@ const { stripIndents } = require('common-tags');
 const moment = require('moment');
 require('./util/eventLoader')(client);
 const db = require('quick.db');
+const Jimp = require('jimp')
 const snekfetch = require('snekfetch');
 
 client.config = require("./config.js");
@@ -83,7 +84,7 @@ client.on("ready", async () => {
   
   console.log(`${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor!")}`)
   client.user.setStatus("dnd");
-  client.user.setActivity(`${client.ayarlar.prefix}yardım | Osman8x`, { type: 'WATCHING' });
+  client.user.setActivity(`${client.ayarlar.prefix}yardım | `, { type: 'WATCHİNG' });
   
 })
 
@@ -1559,3 +1560,59 @@ client.channels.get(serverStats.botCountID).setName(`Bot Sayısı 》 ${member.g
 
 
 });
+
+client.on("guildMemberAdd", async member => {
+const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./jsonlar/gc.json", "utf8"));
+  
+  const hgK = member.guild.channels.get(gc[member.guild.id].gkanal)
+    if (!hgK) return;
+        let username = member.user.username;
+   
+            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/321646765180715008/520209658204651520/guildAdd.png");
+            const userimg = await Jimp.read(member.user.avatarURL);
+            var font;
+            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
+            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+            await bg.print(font, 430, 170, member.user.tag);
+            await userimg.resize(362, 362);
+            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
+              setTimeout(function () {
+                    hgK.send(new Discord.Attachment("./img/" + member.id + ".png"));
+              }, 1000);
+              setTimeout(function () {
+                fs.unlink("./img/" + member.id + ".png");
+              }, 10000);
+        let hgm = JSON.parse(fs.readFileSync("./jsonlar/hgm.json", "utf8"));
+    const hgmK = member.guild.channels.get(hgm[member.guild.id].gkanal)
+    var kullanici = member.tag
+    var sunucu = member.guild.name
+    hgmK.send(`${gc[member.guild.id].mesaj}`)
+    })
+
+
+client.on("guildMemberRemove", async member => {
+const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./jsonlar/gc.json", "utf8"));
+    const hgK = member.guild.channels.get(gc[member.guild.id].gkanal)
+    if (!hgK) return;
+        let username = member.user.username;
+         
+                        const bg = await Jimp.read("https://cdn.discordapp.com/attachments/321646765180715008/520209659785773056/guildRemove.png");
+            const userimg = await Jimp.read(member.user.avatarURL);
+            var font;
+            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
+            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+            await bg.print(font, 430, 170, member.user.tag);
+            await userimg.resize(362, 362);
+            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
+              setTimeout(function () {
+                    hgK.send(new Discord.Attachment("./img/" + member.id + ".png"));
+              }, 1000);
+              setTimeout(function () {
+                fs.unlink("./img/" + member.id + ".png");
+              }, 10000);
+        
+    })
