@@ -1529,3 +1529,33 @@ bot.on('raw', event => {
     }   
 });
 });
+
+const serverStats = {
+  guildID: '572796029129457674',
+  totalUsersID: 'Toplam Kullanı',
+  memberCountID: 'Üye Sayısı Kanal ID',
+  botCountID: 'Bot Sayısı Kanal ID'
+
+};
+
+
+client.on('guildMemberAdd', member => {
+
+if (member.guild.id !== serverStats.guildID) return;
+
+client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount} `);
+client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
+client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
+
+});
+
+client.on('guildMemberRemove', member => {
+
+if (member.guild.id !== serverStats.guildID) return;
+
+client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount} `);
+client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
+client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
+
+
+});
