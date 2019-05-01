@@ -1425,7 +1425,7 @@ client.login('NTcyNTI5MTc5Mzg4NTQzMDI0.XMhU7w.Qgn3Y7z-dOPzXHozE6_jaKdPfZk');
 
 client.on('guildMemberAdd', member => {
   member.addRole(member.guild.roles.find(r => r.name.startsWith('Kullanıcı')));
-  const channel = member.guild.channels.find('name', '「🚪」gelen-giden');
+  const channel = member.guild.channels.find('name', '「🚪」gelen-gid');
   if (!channel) return;
  const embed = new Discord.RichEmbed()
  .setColor('RANDOM')
@@ -1439,7 +1439,7 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', '「🚪」gelen-giden');
+  const channel = member.guild.channels.find('name', '「🚪」gelen-den');
   if (!channel) return;
  const embed = new Discord.RichEmbed()
  .setColor('RANDOM')
@@ -1462,7 +1462,7 @@ client.on("message", message => {
          .addField(`Mesajı Gönderen`,message.author.tag)
          .addField(`Gönderilen Mesaj`,message.content)
          .setThumbnail(message.author.avatarURL) 
-    client.channels.get("573108768783597568").send(xirdm);
+    client.channels.get("573254833021255691").send(xirdm);
     }
 });
 
