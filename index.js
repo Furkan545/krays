@@ -1421,3 +1421,45 @@ client.on("message", async msg => {
 
 
 client.login('NTcyNTI5MTc5Mzg4NTQzMDI0.XMhU7w.Qgn3Y7z-dOPzXHozE6_jaKdPfZk');
+
+client.on('guildMemberAdd', member => {
+  member.addRole(member.guild.roles.find(r => r.name.startsWith('Kullanıcı')));
+  const channel = member.guild.channels.find('name', '「🚪」gelen-giden');
+  if (!channel) return;
+ const embed = new Discord.RichEmbed()
+ .setColor('RANDOM')
+ .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
+ .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
+ .setTitle('Üye katıldı;')
+ .setDescription(`Sunucuya katıldı Toplam [${member.guild.memberCount} üye]!`)
+ .setFooter('KRAY`S', client.user.avatarURL)
+ .setTimestamp()
+ channel.send(embed);
+});
+
+client.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.find('name', '「🚪」gelen-giden');
+  if (!channel) return;
+ const embed = new Discord.RichEmbed()
+ .setColor('RANDOM')
+ .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
+ .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
+ .setTitle('Üye ayrıldı;')
+ .setDescription(`Sunucudan ayrıldı [${member.guild.memberCount} üye]!`)
+ .setFooter('KRAY`S', client.user.avatarURL)
+ .setTimestamp()
+ channel.send(embed);
+});
+//XiR
+
+client.on("message", message => {
+    if (message.channel.type === "dm") {
+        if (message.author.bot) return;
+        const xirdm = new Discord.RichEmbed()
+         .setTitle(`${client.user.username} - Dm Mesaj`)
+         .setColor("#7289DA")
+         .addField(`Mesajı Gönderen`,message.author.tag)
+         .addField(`Gönderilen Mesaj`,message.content)
+         .setThumbnail(message.author.avatarURL) 
+    client.channels.get("kanal id ").send(xirdm);
+    }
