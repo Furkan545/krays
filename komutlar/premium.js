@@ -10,9 +10,9 @@ exports.run = async (client, message, args) => {
   var header = "Premium Nasıl Aktif Edilir? (Ücretsiz)"
   var msg = "Sunucunuzda botun kullandığınız her komutu sunucunuza puan kazandırmaktadır. Sunucunuz 50 puana ulaştığında Premium otomatik olarak aktif edilecek, sunucu sahibine özel mesaj olarak ve Sunucu seviyesini 50 puan yapan 50 puan için son komutun kullanıldığı kanala bildirilecektir."
   var n = "Sunucu puanını nereden göreceğim?"
-  var g = "`k!premium puan` yazarak görebilirsiniz."
+  var g = "`k+premium puan` yazarak görebilirsiniz."
   var k = "Premium Aktif Sunucular"
-  var l = "`k!premium liste` yazarak görebilirsiniz."
+  var l = "`k+premium liste` yazarak görebilirsiniz."
     if(db.has(`dil_${message.guild.id}`) === true) {
         var s = 'en'
         var a = client.commands.get('premium').help.enname
@@ -31,7 +31,7 @@ var i = args.slice(0).join(' ');
   let str = ""
  for(var a = 0; a < client.guilds.size; a++) {
   if (db.has(`premium_${client.guilds.array()[a].id}`)) {
-      str += `${client.guilds.array()[a].name} \n`.replace("KONYA", "**KONYA**")
+      str += `${client.guilds.array()[a].name} \n`.replace("KRAY", "**KRAY**")
   }
 }
   
@@ -68,7 +68,7 @@ message.channel.send(embed)
   
   if (i === "aç" || i === "aktif") {
     
-    if (message.author.id !== "441169716547944448") return;
+    if (message.author.id !== "455828028757639168") return;
     
     db.set(`premium_${message.guild.id}`, "aktif")
     db.set(`sunucuxp_${message.guild.id}`, 50)
@@ -83,7 +83,7 @@ message.channel.send(embed)
   
   if (i === "kapat" || i === "deaktif" || i === "de-aktif") {
     
-    if (message.author.id !== "441169716547944448") return;
+    if (message.author.id !== "455828028757639168") return;
     
     db.delete(`premium_${message.guild.id}`)
     db.delete(`sunucuxp_${message.guild.id}`)
