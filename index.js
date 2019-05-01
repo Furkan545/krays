@@ -1467,12 +1467,12 @@ client.on("message", message => {
 
 client.on('message', message => {
 
-const yourID = "Kullanıcı ID niz Buraya"; //
-const setupCMD = "kayıt"
+const yourID = "455828028757639168"; //
+const setupCMD = "kayıto"
 let initialMessage = `${message.guild.name}`;
-const roles = ["Rol ADI Buraya"];
-const reactions = [""];
-const botToken = "Bot Tokeni Buraya"; 
+const roles = ["✦─Kullanıcı─✦"];
+const reactions = ["Kayıt olmak için emojiye tıkla"];
+const botToken = "NTcyNTI5MTc5Mzg4NTQzMDI0.XMmwZg.s2RT0HExSmoI8Ib5N4gXZfPUmwQ"; 
 
 const bot = new Discord.Client();
 bot.login(botToken);
