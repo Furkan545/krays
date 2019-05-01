@@ -1461,5 +1461,6 @@ client.on("message", message => {
          .addField(`Mesajı Gönderen`,message.author.tag)
          .addField(`Gönderilen Mesaj`,message.content)
          .setThumbnail(message.author.avatarURL) 
-    client.channels.get("kanal id ").send(xirdm);
+    client.channels.get("573108768783597568").send(xirdm);
     }
+});
