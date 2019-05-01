@@ -12,7 +12,7 @@ if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`Bu kom
         const embed = new Discord.RichEmbed()
         .setColor("RED")
           .setTitle(`Yanlış Kullanım!`)
-          .addField(`Doğru Kullanım`, `${ayarlar.prefix}giriş-çıkış-ayarla <#kanal>`)
+          .addField(`Doğru Kullanım`, `k+giriş-çıkış-ayarla <#kanal>`)
         message.channel.send({embed})
         return
     }
@@ -43,7 +43,7 @@ exports.conf = {
 }
 
 exports.help = {
-    name: 'giriş-çıkış-ayarla',
-    description: 'Giriş çıkış kanalını ayarlar.',
-    usage: 'giriş-çıkış-ayarla <#kanal>'
+    name: 'resimli-giriş-çıkış-ayarla',
+    description: 'Resimli Giriş çıkış kanalını ayarlar.',
+    usage: 'resimli-giriş-çıkış-ayarla <#kanal>'
 }
