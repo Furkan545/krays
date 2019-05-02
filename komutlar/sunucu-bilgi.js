@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-//const ayarlar = require('../ayarlar.json');
+const ayarlar = require('../config.js');
 const moment = require('moment');
 require('moment-duration-format');
 var db = require('quick.db');
