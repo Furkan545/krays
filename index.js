@@ -453,7 +453,7 @@ client.on('guildCreate', async guild => {
             var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  var guildhook = new Discord.WebhookClient("573233106069487626", "TDULnpGt8ZZO88N5NSGtxAkGesp3ugmxIIZRIS1lbXpKHbG8e8qtUKc6RATdC90xCiJU")
+  var guildhook = new Discord.WebhookClient("573497909618671636", "5C5K4mIFhpPAaDOfUi2IkFf6fnBc7fQdH8emnFtRTCgTI4C4_ma2392W8lIudbBk42T7")
   const server = new RichEmbed()
   .setColor('0x36393F')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)
@@ -556,7 +556,7 @@ client.on("guildDelete", async guild => {
             var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
         }
   
-  var guildhook = new Discord.WebhookClient("573233106069487626", "TDULnpGt8ZZO88N5NSGtxAkGesp3ugmxIIZRIS1lbXpKHbG8e8qtUKc6RATdC90xCiJU")
+  var guildhook = new Discord.WebhookClient("573497909618671636", "5C5K4mIFhpPAaDOfUi2IkFf6fnBc7fQdH8emnFtRTCgTI4C4_ma2392W8lIudbBk42T7")
   const server = new RichEmbed()
   .setColor('0x36393F')
   .setThumbnail(guild.iconURL || guild.defaultİconURL)
