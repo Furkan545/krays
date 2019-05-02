@@ -1539,7 +1539,7 @@ let gc = JSON.parse(fs.readFileSync("./jsonlar/gc.json", "utf8"));
     if (!hgK) return;
         let username = member.user.username;
    
-            const bg = await Jimp.read("");
+            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184528148725780/guildAdd.png");
             const userimg = await Jimp.read(member.user.avatarURL);
             var font;
             if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
@@ -1569,7 +1569,7 @@ let gc = JSON.parse(fs.readFileSync("./jsonlar/gc.json", "utf8"));
     if (!hgK) return;
         let username = member.user.username;
          
-                        const bg = await Jimp.read("https://cdn.discordapp.com/attachments/321646765180715008/520209659785773056/guildRemove.png");
+                        const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184546477572107/guildRemove.png");
             const userimg = await Jimp.read(member.user.avatarURL);
             var font;
             if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);

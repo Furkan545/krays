@@ -1,41 +1,32 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const ayarlar = require('../config.js');
 
-exports.run = async (client, message) => {
-  
-  const db = require('quick.db');
-  
-  var s = 'tr'
-  var a = client.commands.get('davet').help.name
-    if(db.has(`dil_${message.guild.id}`) === true) {
-        var s = 'en'
-        var a = client.commands.get('davet').help.enname
-    }
-    const dil = client[s]
-    const o = a
-  
-  const davet = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(`${client.user.username} - ${dil.special.links}`, client.user.avatarURL)
-.setDescription(`[${dil.special.botinvite}](${client.ayarlar.botD}) \n[${dil.special.supportserver}](https://discord.gg/bPftMMe) \n [${dil.special.webS}](${client.ayarlar.webS}) \n[${dil.special.DBLpage}](${client.ayarlar.dbl}) \n[${dil.special.DBLvote}](${client.ayarlar.dblO})
-`)
-message.channel.send(davet)
+exports.run = (client, message) => {
+  const embed = new Discord.RichEmbed()
+  .setTitle("Beni sunucuna davet etmek için tıkla.")
+    .setAuthor(message.author.username, message.author.avatarURL)
+  .setColor("RANDOM")
+  .setDescription("**Bot yapımıcısı:@Fatih_Borlu#9047** ")
+  .setFooter('GoGame', client.user.avatarURL)
+  .setThumbnail("")
+  .setTimestamp()
+  .addField("» Linkler", `[Botu Ekle](https://discordapp.com/oauth2/authorize?client_id=572529179388543024&scope=bot&permissions=805314622)`+ "**\n**"+`[Destek Sunucusu](https://discord.gg/bPftMMe)`, false)
+  .setURL('https://discordapp.com/oauth2/authorize?client_id=572529179388543024&scope=bot&permissions=805314622')
+  .setThumbnail(client.user.avatarURL);
+
+  message.channel.send({embed});
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['linkler'],
-  permLevel: 0,
-    kategori: "bot",
-  category: "bot"
+  aliases: [],
+  permLevel: 0
 };
 
 exports.help = {
   name: 'davet',
-  description: 'Botun davet linklerini gösterir.',
-  usage: 'davet',
-  enname: 'invite',
-  endescription: 'Bot shows invitation links.',
-  enusage: 'invite'
+  aciklama: 'Bot ile ilgili bilgi verir.',
+  kullanim: 'davet'
 };
