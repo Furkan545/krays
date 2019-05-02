@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let serverembed = new Discord.RichEmbed()
-    .setDescription("**😋 Kray BOT Yardım Komutları Yeni Komutlar Yakında 😋**")
+    .setDescription("**😋 Kapot BOT Yardım Komutları Yeni Komutlar Yakında 😋**")
     .setColor("RANDOM")
     .addField(`⚙️ Bot Komutları ⚙️`, 'kp!ön-ek: `Bot prefix ayarlar.` \nkp!davet: `Bot davet linkini atar.` \nkp!ping: `Botun pingini gösterir.` \nkp!sunucular: `Botun bulunduğu sunucuları gösterir.` \nkp!istatistik: `Botun istatistiklerini gösterir.` ')
     .addField(`🛠 Moderasyon Komutları 🛠`, 'kp!yasakla: `İstediğiniz kişiyi sunucudan yasaklar.` \nkp!at: `İstediğiniz kişiyi sunucudan atar.` \nkp!konuştur: `Susturulmuş bir kişinin susturmasını kaldırmayı sağlar.` \nkp!mod-log-ayarla: `Moderasyon kayıtları kanalını ayarlar.` \nkp!reklam-taraması: `Kullanıcıların oynuyor mesajlarındaki ve kullanıcı adlarındaki reklamları tarar.` \nkp!yavaş-mod: `Bulunduğunuz kanala yazma sınırı (süresi) ekler.` \nkp!sustur-rol-ayarla: `Birisi susturulunca verilecek rolü ayarlar.` \nkp!sustur: `İstediğiniz kişiyi susturur.` \nkp!temizle-üye: `Belirtilen kişinin belirtilen miktarda mesajını siler.` \nkp!temizle: `Belirtilen miktarda mesaj siler.` \nkp!uyar: `İstediğiniz kişiyi uyarır.` \nkp!uyarı-kaldır: `İstediğiniz kişinin uyarılarını kaldırır.` \nkp!uyarılar: `İstediğiniz kişinin uyarılarını gösterir.`')
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: ['h', 'help', 'y'],
  
