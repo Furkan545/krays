@@ -1423,36 +1423,6 @@ client.on("message", async msg => {
 
 client.login('NTcyNTI5MTc5Mzg4NTQzMDI0.XMhU7w.Qgn3Y7z-dOPzXHozE6_jaKdPfZk');
 
-client.on('guildMemberAdd', member => {
-  member.addRole(member.guild.roles.find(r => r.name.startsWith('Kullanıcı')));
-  const channel = member.guild.channels.find('name', '「🚪」gelen-gid');
-  if (!channel) return;
- const embed = new Discord.RichEmbed()
- .setColor('RANDOM')
- .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
- .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
- .setTitle('Üye katıldı;')
- .setDescription(`Sunucuya katıldı Toplam [${member.guild.memberCount} üye]!`)
- .setFooter('KRAY`S', client.user.avatarURL)
- .setTimestamp()
- channel.send(embed);
-});
-
-client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.find('name', '「🚪」gelen-den');
-  if (!channel) return;
- const embed = new Discord.RichEmbed()
- .setColor('RANDOM')
- .setAuthor(member.user.tag, member.user.avatarURL || member.user.defaultAvatarURL)
- .setThumbnail(member.user.avatarURL || member.user.defaultAvatarURL)
- .setTitle('Üye ayrıldı;')
- .setDescription(`Sunucudan ayrıldı [${member.guild.memberCount} üye]!`)
- .setFooter('KRAY`S', client.user.avatarURL)
- .setTimestamp()
- channel.send(embed);
-});
-//XiR
-
 client.on("message", message => {
     if (message.channel.type === "dm") {
         if (message.author.bot) return;
@@ -1616,3 +1586,13 @@ let gc = JSON.parse(fs.readFileSync("./jsonlar/gc.json", "utf8"));
               }, 10000);
         
     })
+
+client.on(`guildMemberAdd`, async member => {
+  const e = new Discord.RichEmbed()
+    .setColor(`RANDOM`)
+    .setImage(`https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif`)
+    .addField(`Sunucumuza geldiğin için teşekkür ederim!`, `Kray iyi eğlenceler diler`)
+    .addField(`Davet Linkleri;`, `[Botu Sunucuna Eklemek için Tıkla](https://discordapp.com/oauth2/authorize?client_id=572529179388543024&scope=bot&permissions=805314622)\n[Botun Destek Sunucusu](https://discord.gg/bPftMMe)`)
+    .setFooter(`Bu Sunucu 7/24 Kray tarafından korunuyor.`)
+  member.send(e);
+});
