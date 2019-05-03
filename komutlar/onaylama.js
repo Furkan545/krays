@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     message.delete();
-    let role = message.guild.roles.find(role => role.name === 'Onaylı');
-    if (message.channel.name !== 'verified') return message.reply('**verified** kanalına gitmek zorundasın!');
+    let role = message.guild.roles.find(role => role.name === '{--•°Onaylı°•--}');
+    if (message.channel.name !== '°•hesap-onay•°') return message.reply('**°•hesap-onay•°** kanalına gitmek zorundasın!');
     message.member.addRole(role);
     if (message.member.roles.has(role.id)) {
         let verifyEmbed = new Discord.RichEmbed()
@@ -31,6 +31,6 @@ exports.help = {
     name: 'onaylama',
     category: 'ayarlar',
     description: 'Hesabınızı sunucuda onaylar.',
-    usage: 'n!onaylama'
+    usage: 'k+onaylama'
 }
 //sonmeztv
