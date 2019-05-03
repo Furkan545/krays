@@ -29,7 +29,7 @@ if (!message.guild) {
       .addField(`? Sunucu Davet Linki`, invite.url, true)
             .setColor('RANDOM')
       .setThumbnail(message.guild.iconURL)
-       client.channels.get('572787136546340864').send(embed)
+       client.channels.get('573252073332670495').send(embed)
             });
   kullanildii[message.guild.id].gunlukkullanim = 1
       fs.writeFile('./sunucutanıt.json', JSON.stringify(kullanildii), (err) => {
