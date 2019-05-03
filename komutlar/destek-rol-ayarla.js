@@ -38,7 +38,7 @@ exports.conf = {
     guildOnly: false,
     aliases: ["destek-rol"],
     permLevel: 4,
-    kategori: "ayarlar",
+    kategori: "Yetkili",
   category: "settings"
   };
 
