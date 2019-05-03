@@ -3,10 +3,10 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let guild = message.guild
-  let terfiler = guild.channels.find('name', 'yetki-başvurusu');
-  if (!terfiler) return message.reply('`yetki-başvurusu` kanalını bulamıyorum.');
+  let terfiler = guild.channels.find('name', '°•yetkili-başvuru•°');
+  if (!terfiler) return message.reply('`°•yetkili-başvuru•°` kanalını bulamıyorum.');
   let user = message.mentions.users.first();
-  if (reason.length < 1) return message.reply('Ne Kazandirirsiniz,Istediniz Yetki,Kac Saat Aktif Olacaginiz,Adiniz,Yasiniz ve Kendinizi Etiketleyin.');
+  if (reason.length < 1) return message.reply('\n👑》İsminiz Ve Yaşınız《👑,\n👑》Istediniz Yetki《👑,\n👑》Kaç Saat Aktif Olacağiniz《👑,\n👑》Kendinizi Etiketleyin《👑.');
   if (message.mentions.users.size < 1) return message.reply('Isminizi Etiketleyin.').catch(console.error);
   const embed = new Discord.RichEmbed()
     .setColor(0xD97634)
