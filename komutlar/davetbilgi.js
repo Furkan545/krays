@@ -8,7 +8,7 @@ exports.run = async (client, message, args, prefix) => {
         const embed1 = new Discord.RichEmbed()
             .setTitle(`💁 İnvite Bilgisi`)
             .setDescription(`Davetiye kullanım bilgileri.`)
-            .addField(`📖 Örnek Kullanım: \n`+ ayarlar.prefix + "davetbilgi https://discord.gg/GkzwCgM veya\n", "**x+davetbilgi GkzwCgM**")
+            .addField(`📖 Örnek Kullanım: \n`+ ayarlar.prefix + "davetbilgi https://discord.gg/uswmT2X veya\n", "**k+davetbilgi usemT2X**")
             .setColor('BLUE')
             .setFooter(`${message.author.tag}`, message.author.displayAvatarURL)
             .setTimestamp()
