@@ -59,8 +59,8 @@ exports.conf = {
 }
 
 exports.help = {
-    name: 'namaz <şehir>',
+    name: 'namaz ',
     description: ' Şehirlere Göre Namaz Vakitlerini Gösterir.',
-    usage: '..namaz <şehir>'
+    usage: '..namaz '
 }
  
