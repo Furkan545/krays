@@ -113,7 +113,7 @@ module.exports = (client) => {
   app.get("/autherror", (req, res) => {
     renderTemplate(res, req, "autherror.ejs");
     
-    client.channels.get("573505484636553217").send("Web Panelinde bağlantı hatası oluştu! Kişi giriş yapamıyor tekrar denemeli! Büyük bir sorun değil.")
+    client.channels.get("557603477296250902").send("Web Panelinde bağlantı hatası oluştu! Kişi giriş yapamıyor tekrar denemeli! Büyük bir sorun değil.")
   });
 
   app.get("/logout", function(req, res) {

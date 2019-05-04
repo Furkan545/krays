@@ -78,8 +78,6 @@ client.on("ready", async () => {
     client.appInfo = await client.fetchApplication();
   }, 60000);
   
-
-  
   console.log(`${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor!")}`)
   client.user.setStatus("dnd");
   client.user.setActivity(`Bot Bakımda Komutları`, { type: 'WATCHING' });
