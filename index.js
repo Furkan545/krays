@@ -1595,3 +1595,6 @@ client.on(`guildMemberAdd`, async member => {
     .setFooter(`Bu Sunucu 7/24 Kray tarafından korunuyor.`)
   member.send(e);
 });
+
+
+client.login('NTcyNTI5MTc5Mzg4NTQzMDI0.XM2eAA.Oe9jlHQF_tqgfwCfcFyWN8m9CsU');
