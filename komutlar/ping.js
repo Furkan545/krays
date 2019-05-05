@@ -14,7 +14,7 @@ exports.run = async (client, message) => {
     const dil = client[s]
     const o = a
   
-  var m = await message.channel.send(`${client.emojis.get("516219087790276623")} ${dil.wait}`)
+  var m = await message.channel.send(`${client.emojis.get("574005374269653006")} ${dil.wait}`)
 
   setTimeout(() => {
     const pingozel = new Discord.RichEmbed()

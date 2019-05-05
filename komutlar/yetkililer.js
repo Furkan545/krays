@@ -5,16 +5,16 @@ exports.run = async (client, message) => {
   var str = ''
 for(var i = 0; i < message.guild.members.size; i++) {
    if(message.guild.members.array()[i].hasPermission("MANAGE_MESSAGES") && message.guild.members.array()[i].presence.status === "dnd" && !message.guild.members.array()[i].user.bot) {
-      str += `${client.emojis.get('509054756770152458.')} ${message.guild.members.array()[i].user.tag}\n`
+      str += `${client.emojis.get('574609741695680513.')} ${message.guild.members.array()[i].user.tag}\n`
     }
     else if(message.guild.members.array()[i].hasPermission("MANAGE_MESSAGES") && message.guild.members.array()[i].presence.status === "online" && !message.guild.members.array()[i].user.bot){
-      str += `${client.emojis.get('509055599946760212')} ${message.guild.members.array()[i].user.tag}\n`
+      str += `${client.emojis.get('574609741695680513')} ${message.guild.members.array()[i].user.tag}\n`
     }
     else if(message.guild.members.array()[i].hasPermission("MANAGE_MESSAGES") && message.guild.members.array()[i].presence.status === "idle" && !message.guild.members.array()[i].user.bot){
-      str += `${client.emojis.get('509054756669358100')} ${message.guild.members.array()[i].user.tag}\n`
+      str += `${client.emojis.get('574609741695680513')} ${message.guild.members.array()[i].user.tag}\n`
     }
       else if (message.guild.members.array()[i].hasPermission("MANAGE_MESSAGES") && message.guild.members.array()[i].presence.status === "offline" && !message.guild.members.array()[i].user.bot){
-      str += `${client.emojis.get('509054756233150466')} ${message.guild.members.array()[i].user.tag}\n`
+      str += `${client.emojis.get('574609935837560832')} ${message.guild.members.array()[i].user.tag}\n`
     }
 }
 
@@ -29,7 +29,7 @@ message.channel.send(embed)
 };
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: ['yetkili-listesi', 'sunucu-yetkilileri', 'moderatorler', 'modlar', 'moderatörler', 'staffs'],
   permLevel: 0,
