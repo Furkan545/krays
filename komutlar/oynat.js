@@ -152,20 +152,14 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-  enabled: true, 
-  guildOnly: false, 
-  aliases: ["çal", "play", "p"],
-  permLevel: 0,
-  kategori: "müzik",
-  category: "music"
+    enabled: true,
+    aliases: ['çal', 'play'],
+    permLevel: 0
 };
 
 exports.help = {
-  name: 'oynat',
-  description: 'Belirttiğiniz şarkıyı oynatır.',
-  usage: 'çal <şarkı>',
-  enname: 'voting',
-  endescription: 'Allows .',
-  enusage: 'voting <message>'
+    name: 'oynat',
+    description: 'Belirttiğiniz şarkıyı bulunduğunuz sesli kanalda çalar/oynatır.',
+    usage: 'oynat [şarkı adı]'
 };
    

@@ -40,3 +40,4 @@ exports.help = {
     description: 'Sıradaki şarkıya geçer. Sırada şarkı yoksa şarkıyı kapatır.',
     usage: 'geç'
 };
+   
