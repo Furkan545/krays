@@ -43,7 +43,7 @@ exports.run = async (client, message, args) => {
   
   const Durum = user.presence.status;
 			const Durm = (Durum == "online" ? (0x00AE86) : (Durum == "offline" ? (0x808080) : (Durum == "idle" ? (0xFFFF00) : (Durum == "dnd" ? (0xFF0000) : (0x00AE86)))))
-			const durm = (Durum == "online" ? (client.emojis.get('516211158500245514') + c) : (Durum == "offline" ? (client.emojis.get('516211156495630336') + cd) : (Durum == "idle" ? (client.emojis.get('516211156067680279') + b) : (Durum == "dnd" ? (client.emojis.get('516211155619020805') + r) : (dil.dont)))))
+			const durm = (Durum == "online" ? (client.emojis.get('574612554689806336') + c) : (Durum == "offline" ? (client.emojis.get('574005404271640616') + cd) : (Durum == "idle" ? (client.emojis.get('574612577934639133') + b) : (Durum == "dnd" ? (client.emojis.get('574614435872899082') + r) : (dil.dont)))))
       
     const aylar = dil.months
     

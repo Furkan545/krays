@@ -80,7 +80,7 @@ ${x11} Webhook'ları Yönet
 };
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: ['izinlerim'],
   permLevel: 0,
