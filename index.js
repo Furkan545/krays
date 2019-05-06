@@ -258,7 +258,7 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
 client.on("guildCreate",guild => {
   const e = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setDescription("Beni Sunucuna Eklediğin İçin Teşekkür Ederim, \n Bir Ayar Komudunu Kapatmak İçin `k+ayarlar kapat` Yazarak Nasıl Kapatacağınızı Görebilirsiniz. \n Ayrıca Komutlarımı görmek için `k+yardım` yazabilirsiniz\n [DESTEK SUNUCUM](https://discord.gg/Vm2tXfF) \n [WEB PANELİM](https://turkestr.glitch.me/)")
+  .setDescription("Beni Sunucuna Eklediğin İçin Teşekkür Ederim, \n Bir Ayar Komudunu Kapatmak İçin `k+ayarlar kapat` Yazarak Nasıl Kapatacağınızı Görebilirsiniz. \n Ayrıca Komutlarımı görmek için `k+yardım` yazabilirsiniz\n [DESTEK SUNUCUM](https://discord.gg/ss3N4hM) \n [WEB PANELİM](https://turkestr.glitch.me/)")
           .setFooter("Bu Mesaj Sadece Size Gönderilmiştir.")
 guild.owner.send(e)
 })

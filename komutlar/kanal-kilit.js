@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
 const embedyazı = new Discord.RichEmbed()
 .setTitle(`${message.guild.name} - Kanal Kilit Sistemi `)
 .setColor('RANDOM')
-.setDescription(`**\n \`\`\`❌ Doğru kullanım :: ${ayarlar.prefix}kilit <süre>\`\`\`**\n\n **Süre Örnek ::**\n \n:triangular_flag_on_post:  1s = 1 saniye\n:triangular_flag_on_post:  1m = 1 dakika \n:triangular_flag_on_post:  1h = 1 saat \n:triangular_flag_on_post:  1d = 1 gün\n\n **:warning: Dikkat :: Sadece Komutu Kullanılan Kanal Kilitlenir !** **\n** `)
+.setDescription(`**\n \`\`\`❌ Doğru kullanım :: k+kilit <süre>\`\`\`**\n\n **Süre Örnek ::**\n \n:triangular_flag_on_post:  1s = 1 saniye\n:triangular_flag_on_post:  1m = 1 dakika \n:triangular_flag_on_post:  1h = 1 saat \n:triangular_flag_on_post:  1d = 1 gün\n\n **:warning: Dikkat :: Sadece Komutu Kullanılan Kanal Kilitlenir !** **\n** `)
 .setTimestamp()
 .setThumbnail("http://www.daxiongmao.eu/wiki/images/3/34/Pki-icon.png")
 .setFooter(`Kanalı Kilitleyen Yetkili : ${message.author.username}`, message.author.avatarURL);
