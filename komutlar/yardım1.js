@@ -11,6 +11,7 @@ const embed = new Discord.RichEmbed()
 .addField('» Genel Komutlar', 'k+genel')
 .addField('» Kullanıcı Komutlar', 'k+kullanıcı')
 .addField('» Oyun Komutları', 'k+oyun')
+.addField('» Müzik Komutları', 'k+müzi
 .setFooter('© 2018 Fredux', client.user.avatarURL)
 .setTimestamp()
 .setThumbnail(client.user.avatarURL)
