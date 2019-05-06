@@ -36,8 +36,10 @@
     "request": "^2.88.0",
     "simple-youtube-api": "^5.1.1",
     "speedtest-net": "^1.5.1",
+    "superagent": "^5.0.5",
     "useful-package": "^0.0.64",
     "useful-tools": "^0.2.6",
+    "weather": "^0.1.0",
     "ytdl-core": "^0.29.1"
   },
   "engines": {
