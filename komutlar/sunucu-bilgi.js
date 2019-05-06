@@ -141,8 +141,8 @@ for(var i = 0; i < db.fetch(`komutkomuts_${message.guild.id}`);) {
    .addField(dil.sunucu.roles+' ['+message.guild.roles.size+']', g, true)
    .addField(dil.sunucu.emojis+' ['+message.guild.emojis.size+']', g2, true)
    .addField(dil.sunucu.tarih, `${moment(message.guild.createdAt).format('DD')} ${aylar[moment(message.guild.createdAt).format('MM')]} ${moment(message.guild.createdAt).format('YYYY HH:mm:ss')}`, true)
-   .addField(dil.sunucu.prefix, "`"+prefix+"`", true)
-  // .addField(dil.sunucu.komut, "`"+k || "Bulunmuyor"+"`", true)
+   .addField(dil.sunucu.prefix, "`Varsayılan (k+)`", true)
+   //.addField(dil.sunucu.komut, "`"|| "Bulunmuyor"+"`", true)
    .addField(dil.sunucu.puan, db.fetch(`sunucuxp_${message.guild.id}`)+"/50" || 0)
    .addField(dil.sunucu.premium, db.has(`premium_${message.guild.id}`) ? db.fetch(`premium_${message.guild.id}`).replace("aktif", x) : y)
    message.channel.send({embed});
