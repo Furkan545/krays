@@ -26,6 +26,7 @@ dependencies:
   request: 2.88.0
   simple-youtube-api: 5.1.1
   speedtest-net: 1.5.1
+  steam-provider: 0.3.2
   superagent: 5.0.5
   useful-package: 0.0.64
   useful-tools: 0.2.6
@@ -2517,6 +2518,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+  /steam-provider/0.3.2:
+    dependencies:
+      cheerio: 1.0.0-rc.3
+    dev: false
+    resolution:
+      integrity: sha512-RvslE4DLTdwL5SNeg7ODknxF1syiTIiRu+Uoy6I1cyairuUnwlkR1SR9pZFw8f4pHbnAldhLzjxiJQx9dEaI6Q==
   /strict-uri-encode/1.1.0:
     dev: false
     engines:
@@ -2877,6 +2884,7 @@ specifiers:
   request: ^2.88.0
   simple-youtube-api: ^5.1.1
   speedtest-net: ^1.5.1
+  steam-provider: ^0.3.2
   superagent: ^5.0.5
   useful-package: ^0.0.64
   useful-tools: ^0.2.6
