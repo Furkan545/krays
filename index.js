@@ -81,8 +81,8 @@ client.on("ready", async () => {
 //require("./modules/dashboard.js")(client); 
   
   console.log(`${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor!")}`)
-  client.user.setStatus("dnd");
-  client.user.setActivity(`Bot Bakımda Komutları`, { type: 'WATCHING' });
+  client.user.setStatus("online");
+  client.user.setActivity(`**Bot Bakımda Komutlar Yenileniyoruz**`, { type: 'WATCHING' });
   
 })
 
