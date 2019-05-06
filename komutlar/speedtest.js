@@ -40,7 +40,7 @@ Sağlayıcı Sponsoru: **${data.server.sponsor}**`)
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['hıztest, test'],
+  aliases: ["hıztest", "test", "hız"],
   permLevel: 4
 };
 

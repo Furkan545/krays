@@ -1597,3 +1597,11 @@ client.on(`guildMemberAdd`, async member => {
 
 
 client.login("NTc0MjY0OTUyNzgxNzk5NDY1.XM_7GQ.344v7paFt2AEdG-NMpoprpg1hII")
+
+client.on('message', async msg => {
+  if (msg.content.toLowerCase() === 'sa') {
+    await msg.react('🇦');
+    msg.react('🇸');
+    msg.reply('Aleyküm Selam Hoşgeldin!')
+  }
+  });

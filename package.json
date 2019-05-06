@@ -35,6 +35,7 @@
     "pokedex-api": "^1.1.2",
     "quick.db": "^7.0.0-b22",
     "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "simple-youtube-api": "^5.1.1",
     "speedtest-net": "^1.5.1",
     "steam-provider": "^0.3.2",
