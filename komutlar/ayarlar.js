@@ -24,9 +24,9 @@ exports.run = async (client, message, args) => {
   
   let prefix = await db.fetch(`prefix_${message.guild.id}`) || `${dil.ayarlar.errors.degismemis} (r!)`;
   
-  var ac = client.emojis.get("516619492462166023")
-  var ka = client.emojis.get("516619492529405973")
-  var p = client.emojis.get("516619492441325578")
+  var ac = client.emojis.get("574612554689806336")
+  var ka = client.emojis.get("574614435872899082")
+  var p = client.emojis.get("574612577934639133")
   
 if (!a && a !== "destek" && a !== "kapat" && a !== "liste" && a !== "support" && a !== "off" && a !== "list") {
  
