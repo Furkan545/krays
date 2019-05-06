@@ -1,30 +1,32 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 
-module.exports.run = async (bot, message, args) => {
-    let serverembed = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setTitle(`<a:emoji_12:574240268434276352> <a:emoji_3:574005374269653006> KRAY YARDIM <a:emoji_3:574005374269653006> <a:emoji_13:574240299820384257>`)
-    .setThumbnail('https://www.ssyukle.com/images/2019/05/06/fd9bc33bd4367c71888459fb0e45285f.jpg')
-    .addField("<a:emoji_11:574232372661321739>  Bir komut hakkında bilgi almak için  <a:emoji_11:574232372661321739>", `<a:emoji_3:574005374269653006> k+bilgi <komut adı> \n<a:emoji_3:574005374269653006> k+roller ▬ k+emojiler`)
-    .addField(`<a:emoji_11:574232372661321739>  Aktif Komutlar  <a:emoji_11:574232372661321739>`, `<a:emoji_16:574771463354187776> k+kulanıcı 》 Kullanıcı komutlarını listeler. \n<a:emoji_16:574771463354187776> k+eğlence 》 Eğlence komutlarını listeler. \n<a:emoji_16:574771463354187776> k+sunucu 》 Sunucu komutlarını listeler.\n<a:emoji_16:574771463354187776> k+profil 》 Profil komutlarını listeler. \n<a:emoji_16:574771463354187776> k+mod 》 Moderasyon komutlarını listeler. \n<a:emoji_16:574771463354187776> k+bot 》 Bot Komutlarını listeler. \n<a:emoji_16:574771463354187776> k+çerçeve 》 Çerçeve ve efekt komutlarını listeler. \n<a:emoji_16:574771463354187776> k+ayar 》 Sunucu ayar komutlarını listeler. \n<a:emoji_16:574771463354187776> k+genel 》 Genel komutları listeler. \n<a:emoji_16:574771463354187776> k+oyun 》 Oyun komutlarını listeler. \n<a:emoji_16:574771463354187776> k+müzik 》 Müzik komutlarını listeler.  `)
-    .setFooter(`${message.author.username} | Tarafından Kontrol Ediliyor..`, message.author.avatarURL )
-    
-    message.channel.send(serverembed);
-}
+
+exports.run = function(client, message) {
+const embed = new Discord.RichEmbed()
+.setColor('RANDOM')
+.setTitle('» Komut Grupları')
+.setTimestamp()
+.addField('» Eğlence Komutları', 'k+eğlence')
+.addField('» Moderatör Komutları', 'k+moderatör')
+.addField('» Genel Komutlar', 'k+genel')
+.addField('» Kullanıcı Komutlar', 'k+kullanıcı')
+.addField('» Oyun Komutları', 'k+oyun')
+.setFooter('© 2018 Fredux', client.user.avatarURL)
+.setTimestamp()
+.setThumbnail(client.user.avatarURL)
+message.channel.send(embed)
+};
 
 exports.conf = {
-  enabled: false,
-  guildOnly: false,
-  aliases: ['h', 'help', 'y'],
- 
-  permLevel: 0,
-  kategori: 'genel'
+  enabled: true,
+  guildOnly: false, 
+  aliases: ["y","ya"], 
+  permLevel: 0 
 };
 
 exports.help = {
   name: 'yardım',
-  category: 'genel',
-  description: 'Tüm komutları listeler.',
-  usage: 'yardım veya yardım <komut adı>'
+  description: 'Tüm komutları gösterir.',
+  usage: 'yardım'
 };
-   
+ 
