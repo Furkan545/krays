@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   
   var s = 'tr'
   var a = client.commands.get('sor').help.name
- var x = (`${client.emojis.get("498218338137407499")} Birazcık bekle düşünüyorum...`)
+ var x = (`${client.emojis.get("574005404271640616")} Birazcık bekle düşünüyorum...`)
     if(db.has(`dil_${message.guild.id}`) === true) {
         var s = 'en'
         var a = client.commands.get('sor').help.enname

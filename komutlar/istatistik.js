@@ -24,7 +24,7 @@ exports.run = async (bot, message, args) => {
     const dil = bot[s]
     const o = a
   
-  var m = await message.channel.send(`${bot.emojis.get("498218338137407499")} ${dil.wait}`)
+  var m = await message.channel.send(`${bot.emojis.get("574005404271640616")} ${dil.wait}`)
   
   var osType = await os.type();
 
