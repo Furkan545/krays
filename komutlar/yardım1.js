@@ -4,7 +4,8 @@ const Discord = require('discord.js');
 exports.run = function(client, message) {
 const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
-.setTitle('<a:emoji_12:574240268434276352> Kray Yardım Menüsü <a:emoji_13:574240299820384257\n\n[DestekSunucusu](https://discord.gg/ss3N4hM)')
+.setTitle('<a:emoji_12:574240268434276352> Kray Yardım Menüsü <a:emoji_13:574240299820384257>')
+.setDescription(`**Bağlantılar:** \n**[BotunSunucusu](https://discord.gg/ss3N4hM)**\n[BotuEkle]`)
 .setTimestamp()
 .addField('» Ayar Komutları', '<a:emoji_3:574005374269653006>  k+ayar')
 .addField('» Çerçeve Komutları', ' <a:emoji_18:575032047546925058> k+çerçeve')
