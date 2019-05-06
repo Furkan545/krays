@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     const queue = client.queue;
     
     var searchString = args.slice(0).join(' ');
-    var url = args[0] ? args[0].replace(/<(.+)>/g, '$1') : '';
+    var url = args[0] ? args[0].replace(/<(.+)>/g, '$1') : 'k+';
     var serverQueue = queue.get(message.guild.id);
 
     var voiceChannel = message.member.voiceChannel;
