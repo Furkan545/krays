@@ -734,7 +734,7 @@ client.on('message', async msg => {
   
   if (!msg.guild) return;
   
-  let prefix = await db.fetch(`prefix_${msg.guild.id}`) || "k!";
+  let prefix = await db.fetch(`prefix_${msg.guild.id}`) || "k+";
   
   var s = 'tr'
   var r = 'Destek Ekibi'
@@ -860,7 +860,7 @@ client.on('message', async message => {
   
   if (!message.guild) return;
   
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k!";
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "k+";
   
   var s = 'tr'
   var r = 'Destek Ekibi'

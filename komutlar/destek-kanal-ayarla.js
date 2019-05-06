@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-//var ayarlar = require('../ayarlar.json');
+var ayarlar = require('../config.js'); 
 
 exports.run = async (client, message, args) => {
   

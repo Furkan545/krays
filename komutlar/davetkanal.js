@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const fs = require('fs');
-//var ayarlar = require('../ayarlar.json');
+var ayarlar = require('../config.js');
 //let kanal = JSON.parse(fs.readFileSync("././jsonlar/sKanal.json", "utf8"));
 
 exports.run = async (client, message, args) => {
