@@ -78,6 +78,8 @@ client.on("ready", async () => {
     client.appInfo = await client.fetchApplication();
   }, 60000);
   
+require("./modules/dashboard.js")(client); 
+  
   console.log(`${chalk.green(client.user.username)}${chalk.red(",")} ${chalk.blue(client.guilds.size)} ${chalk.yellow("Sunucu'ya")} ${chalk.red("ve")} ${chalk.blue(client.users.size.toLocaleString())} ${chalk.yellow("Kullanıcı'ya")} ${chalk.red("hizmet veriyor!")}`)
   client.user.setStatus("dnd");
   client.user.setActivity(`Bot Bakımda Komutları`, { type: 'WATCHING' });
@@ -1417,7 +1419,7 @@ client.on("message", async msg => {
   
 
 
-client.login('NTcyNTI5MTc5Mzg4NTQzMDI0.XMhU7w.Qgn3Y7z-dOPzXHozE6_jaKdPfZk');
+client.login('NTc0MjY0OTUyNzgxNzk5NDY1.XM_7GQ.344v7paFt2AEdG-NMpoprpg1hII');
 
 client.on("message", message => {
     if (message.channel.type === "dm") {
@@ -1594,4 +1596,4 @@ client.on(`guildMemberAdd`, async member => {
 });
 
 
-client.login("NTc0MjY0OTUyNzgxNzk5NDY1.XM27cA.TbcUVXbr5IDkcOnxDYVT9oHT04s")
+client.login("NTc0MjY0OTUyNzgxNzk5NDY1.XM_7GQ.344v7paFt2AEdG-NMpoprpg1hII")
