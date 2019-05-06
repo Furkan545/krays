@@ -17,6 +17,7 @@
     "cpu-stat": "^2.0.1",
     "db-system": "^0.0.34",
     "discord.js": "^11.4.2",
+    "doviz": "^0.0.3",
     "express": "^4.16.4",
     "figlet": "^1.2.1",
     "fortnitetracker-7days-stats": "^3.1.2",

@@ -6,6 +6,7 @@ dependencies:
   cpu-stat: 2.0.1
   db-system: 0.0.34
   discord.js: 11.4.2
+  doviz: 0.0.3
   express: 4.16.4
   figlet: 1.2.1
   fortnitetracker-7days-stats: 3.1.2
@@ -653,6 +654,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
+  /commander/2.20.0:
+    dev: false
+    resolution:
+      integrity: sha512-7j2y+40w61zy6YC2iRNpUe/NwhNyoXrYpHMrSunaMG64nRnaf96zO/KMQR4OyN/UnE5KLyEBnKHd4aG3rskjpQ==
   /common-tags/1.8.0:
     dev: false
     engines:
@@ -860,6 +865,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg==
+  /doviz/0.0.3:
+    dependencies:
+      commander: 2.20.0
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-qSm3O00tOp3uqKmATcuNM7i0UeI=
   /draftlog/1.0.12:
     dev: false
     resolution:
@@ -2687,6 +2699,7 @@ specifiers:
   cpu-stat: ^2.0.1
   db-system: ^0.0.34
   discord.js: ^11.4.2
+  doviz: ^0.0.3
   express: ^4.16.4
   figlet: ^1.2.1
   fortnitetracker-7days-stats: ^3.1.2
