@@ -18,7 +18,7 @@ if (!message.guild) {
   {
         const embed = new Discord.RichEmbed()
   .setTitle('BAŞARILI')
-.setDescription('Sunucunuz Başarıyla [Destek Sunucusunda Yani Burada Tanıtıldı](Kray Bot Destek & Code PayLaşım Sunucusu).\n12 saat Sonra sunucunuzu Tekrardan Tanıtabilirsiniz.')
+.setDescription('Sunucunuz Başarıyla [DestekSunucusunda](https://discord.gg/ss3N4hM).\n12 saat Sonra sunucunuzu tekrar tanıtabilirsiniz!!!')
         .setColor('GREEN')
  message.channel.sendEmbed(embed);
     message.channel.createInvite({maxAge: 0}).then((invite) => {
