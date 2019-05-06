@@ -10,8 +10,8 @@ exports.run = async (client, message, params) => {
   
   var s = 'tr'
   var a = client.commands.get('sunucu-bilgi').help.name
-  var g = "`r!roller` yazarak görebilirsiniz."
-  var g2 = "`r!emojiler` yazarak görebilirsiniz."
+  var g = "`k+roller` yazarak görebilirsiniz."
+  var g2 = "`k+emojiler` yazarak görebilirsiniz."
   var x = "Aktif"
   var y = "Deaktif"
   var konum = ''
@@ -64,8 +64,8 @@ exports.run = async (client, message, params) => {
     if(db.has(`dil_${message.guild.id}`) === true) {
         var s = 'en'
         var a = client.commands.get('sunucu-bilgi').help.enname
-        var g = "You can see by writing `r!roles`."
-        var g2 = "You can see by writing `r!emojis`."
+        var g = "You can see by writing `k+roles`."
+        var g2 = "You can see by writing `k+emojis`."
         var x = "Active"
         var y = "Unactive"
         var konum = ''
@@ -136,7 +136,7 @@ for(var i = 0; i < db.fetch(`komutkomuts_${message.guild.id}`);) {
    .addField(dil.sunucu.id, message.guild.id, true)
    .addField(dil.sunucu.konum, konum || dil.unknow, true)
    .addField(dil.sunucu.owner, message.guild.owner + client.emojis.get("574005374269653006"), true)
-   .addField(dil.sunucu.members.all+' ['+message.guild.memberCount+']', `${client.emojis.get('509055599946760212')}${dil.sunucu.members.online}: ${message.guild.members.filter(m => m.user.presence.status === "online").size} \n${client.emojis.get('574612554689806336')}${dil.sunucu.members.dnd}: ${message.guild.members.filter(m => m.user.presence.status === "dnd").size} \n${client.emojis.get('509054756669358100')}${dil.sunucu.members.idle}: ${message.guild.members.filter(m => m.user.presence.status === "idle").size} \n${client.emojis.get('574612577934639133')}${dil.sunucu.members.offline}: ${message.guild.members.filter(m => m.user.presence.status === "offline").size} \n${client.emojis.get('574005404271640616')}${dil.sunucu.members.bot}: ${message.guild.members.filter(m => m.user.bot).size}`, true)
+   .addField(dil.sunucu.members.all+' ['+message.guild.memberCount+']', `${client.emojis.get('574612554689806336')}${dil.sunucu.members.online}: ${message.guild.members.filter(m => m.user.presence.status === "online").size} \n${client.emojis.get('574614435872899082')}${dil.sunucu.members.dnd}: ${message.guild.members.filter(m => m.user.presence.status === "dnd").size} \n${client.emojis.get('574612577934639133')}${dil.sunucu.members.idle}: ${message.guild.members.filter(m => m.user.presence.status === "idle").size} \n${client.emojis.get('574005404271640616')}${dil.sunucu.members.offline}: ${message.guild.members.filter(m => m.user.presence.status === "offline").size} \n${client.emojis.get('574905022685380608')}${dil.sunucu.members.bot}: ${message.guild.members.filter(m => m.user.bot).size}`, true)
    .addField(dil.sunucu.channels.all+' ['+message.guild.channels.size+']', `📝${dil.sunucu.channels.text}: ${message.guild.channels.filter(c => c.type === "text").size} \n🔊${dil.sunucu.channels.voice}: ${message.guild.channels.filter(c => c.type === "voice").size} \n📋${dil.sunucu.channels.category}: ${message.guild.channels.filter(c => c.type === "category").size} \n💤${dil.sunucu.channels.afk}: ${message.guild.afkChannel ? message.guild.afkChannel : dil.dont}`, true)
    .addField(dil.sunucu.roles+' ['+message.guild.roles.size+']', g, true)
    .addField(dil.sunucu.emojis+' ['+message.guild.emojis.size+']', g2, true)
