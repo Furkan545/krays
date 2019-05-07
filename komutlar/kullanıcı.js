@@ -13,17 +13,18 @@ exports.run = (client, message, args) => {
     .addField('k+atatürk', 'Rastgele atatürkün fotğrafını atar.')
     .addField('k+kitap-ara', 'Yazılan Kitap Bilgisini Gösterir.')
     .addField('k+avatar', 'Avatarınızı Gösterir.')
-    .addField('k+kullanıcı-bilgi', 'İstediğiniz kullanıcı ')
-    .addField('', '')
-    .addField('', '')
-    .addField('', '')
+    .addField('k+kullanıcı-bilgi', 'İstediğiniz kullanıcı, kullanan kullanıcı bilgilerini gösterir. ')
+    .addField('k+yetkilerim', 'Komutu kullandığınız sunucuda yetkilerinizi/izinlerinizi gösterir.')
+    .addField('k+havadurumu', 'Yazılan konumun havadurum bilgisini gösterir.')
+    .addField('k+romen', 'Yazdığınız sayının romen karşılığını yazar.')
+    .addField('k+çevir', 'İstediğiniz yazıyı istediğiniz dile çevirir.')
     .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=574264952781799465&scope=bot&permissions=0) **|** [Destek Sunucusu](https://discord.gg/ss3N4hM) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
     message.channel.sendEmbed(embed);
 
 };
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: [],
   permLevel: 0,
