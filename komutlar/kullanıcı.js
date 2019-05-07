@@ -7,13 +7,14 @@ exports.run = (client, message, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setAuthor(`${client.user.username} Kullanıcı Komutları`)
-    .addField('k+afk', 'Afk Olursunuz.')//ne kadar yetkili komutunuz varsa o kadar .addField('prefix+komut', 'açıklama/kullanım amacı') koyun
-    .addField ('k+hesapla', 'Belirtilen İşlemi Yapar.')
-    .addField ('k+söz', 'Rastgele güzel sözler atar.')
-    .addField ('k+atatürk', 'Atatürkün rastgele fotoğrafını atar.')
-    .addField ('k+kitap-ara','Yazılan Kitabın Bilgisini gösterir')
-    .addField ('','',)
-    .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/BA) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
+    .addField('prefix+komut', 'açıklama/kullanım amacı')//ne kadar yetkili komutunuz varsa o kadar .addField('prefix+komut', 'açıklama/kullanım amacı') koyun
+    .addField ('', '')
+    .addField ('', '')
+    .addField ('', '')
+    .addField ('', '')
+    .addField ('', '')
+    .addFie
+    .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=574264952781799465&scope=bot&permissions=0) **|** [Destek Sunucusu](https://discord.gg/ss3N4hM) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
     message.channel.sendEmbed(embed);
 
 };
