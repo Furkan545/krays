@@ -7,16 +7,14 @@ exports.run = (client, message, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setAuthor(`${client.user.username} Kullanıcı Komutları`)
-    .setDesc ('**BİR KOMUT HAKKINDA BİLGİ ALMAK İÇİN**')
-    .addField('prefix+komut', 'açıklama/kullanım amacı')//ne kadar yetkili komutunuz varsa o kadar .addField('prefix+komut', 'açıklama/kullanım amacı') koyun
-    .addField ('', '')
+    .addField('afk 》Afk Olursunuz.')//ne kadar yetkili komutunuz varsa o kadar .addField('prefix+komut', 'açıklama/kullanım amacı') koyun
     .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/BAĞLANTI) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
     message.channel.sendEmbed(embed);
 
 };
 
 exports.conf = {
-  enabled: false,
+  enabled: true,
   guildOnly: false,
   aliases: [],
   permLevel: 0,
@@ -25,6 +23,6 @@ exports.conf = {
 exports.help = {
   name: 'kullanıcı',
   description: '',
-  usage: ''
+  usage: 'kullanıcı'
 };
    
