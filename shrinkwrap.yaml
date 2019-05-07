@@ -42,6 +42,7 @@ dependencies:
   speedtest-net: 1.5.1
   steam-provider: 0.3.2
   superagent: 5.0.5
+  tcmb-doviz: 1.0.5
   useful-package: 0.0.64
   useful-tools: 0.2.6
   weather: 0.1.0
@@ -2914,6 +2915,13 @@ packages:
       node: '>=4.5'
     resolution:
       integrity: sha512-LzHF64s5chPQQS0IYBn9IN5h3i98c12bo4NCO7e0sGM2llXQ3p2FGC5sdENN4cTW48O915Sh+x+EXx7XW96xYQ==
+  /tcmb-doviz/1.0.5:
+    dependencies:
+      snekfetch: 4.0.4
+      xml2js: 0.4.19
+    dev: false
+    resolution:
+      integrity: sha512-kpKy8P/ESMUGNs54qXT+pd1ZVeS/JwfhExE6QRFMbG8HVNKyIu0kjPa4ztUKvAw86aGj50+WgWjTO37OqYESeg==
   /timed-out/4.0.1:
     dev: false
     engines:
@@ -3200,6 +3208,7 @@ specifiers:
   speedtest-net: ^1.5.1
   steam-provider: ^0.3.2
   superagent: ^5.0.5
+  tcmb-doviz: ^1.0.5
   useful-package: ^0.0.64
   useful-tools: ^0.2.6
   weather: ^0.1.0
