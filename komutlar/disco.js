@@ -9,7 +9,7 @@ exports.run = async (client, msg, args) => {
   let discoR = await db.fetch(`discorol_${msg.guild.id}`);
    setInterval(() => {
   msg.guild.roles.find('name', discoR).setColor("RANDOM");
-   }, 1000);
+   }, 8000);
 msg.channel.send(`Disco Başladı!`)
 };
 
