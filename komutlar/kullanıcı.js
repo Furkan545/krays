@@ -10,8 +10,10 @@ exports.run = (client, message, args) => {
     .addField('k+afk', 'Afk Olursunuz.')//ne kadar yetkili komutunuz varsa o kadar .addField('prefix+komut', 'açıklama/kullanım amacı') koyun
     .addField ('k+hesapla', 'Belirtilen İşlemi Yapar.')
     .addField ('k+söz', 'Rastgele güzel sözler atar.')
-    .addFiedl ('k+atatürk', '')
-    .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/BAĞLANTI) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
+    .addField ('k+atatürk', 'Atatürkün rastgele fotoğrafını atar.')
+    .addField ('k+kitap-ara','Yazılan Kitabın Bilgisini gösterir')
+    .addField ('','',)
+    .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=8) **|** [Destek Sunucusu](https://discord.gg/BA) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
     message.channel.sendEmbed(embed);
 
 };
