@@ -12,7 +12,7 @@ message.channel.sendEmbed(embed)
 }
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: ["web"],
   permLevel: 0,
