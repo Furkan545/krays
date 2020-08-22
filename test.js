@@ -6,7 +6,7 @@ module.exports = {
 
        if (!secenek) throw new TypeError('Lütfen bir tip seçiniz. "düz" veya "ters"')
        if (!s.includes(secenek)) throw new TypeError('Böyle bir tip bulunmuyor. Tipler: "düz" veya "ters"')
-       if(uzunluk === 0) throw new TypeError('Uzunluk 0 olamaz.')
+       if(uzunluk === 0) throw new TypeError('Uzunluk 0 olamaz. ')
        if (!uzunluk) throw new TypeError('Lütfen bir uzunluk yazınız.')
        if (isNaN(uzunluk)) throw new TypeError('Uzunluk bir sayı olmalı.')
        if (!yazı) throw new TypeError('Lütfen herhangi bir yazı yazınız.')
