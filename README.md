@@ -1,4 +1,4 @@
-<center><img src="https://cdn.discordapp.com/avatars/690605313447166053/3dc0f06af0ea37a91dc8dd0d5dcb4eec.png?size=2048"><br>
+<center><img src="https://github.com/furkanO1/Kapot/blob/master/kapot.png?raw=true" width='100' height='100'><br>
 # Kapot Bot
 </center>
 
